@@ -1,0 +1,45 @@
+body {
+  --h: 270;
+  --s: 50%;
+  --l: 40%;
+  --bg: radial-gradient(
+    hsla(var(--h), var(--s), calc(var(--l) - 1%), 0.99),
+    hsla(var(--h), var(--s), calc(var(--l) - 5%), 0.8)
+  );
+
+  --dark: hsl(var(--h) var(--s) 10%);
+  --dark-hover: hsl(var(--h) var(--s) 25%);
+  --light: hsl(var(--h) var(--s) 99%);
+
+  --gap: 1.5rem;
+  background: radial-gradient(var(--dark-hover), var(--dark));
+  place-content: center;
+}
+
+/* Circle */
+.cf {
+  width: 95vw;
+}
+.cf-arcs {
+  transform: rotate(-15deg);
+  transform-origin: 50% 50%;
+}
+.cf-arcs path {
+  fill: var(--dark);
+  stroke: hsl(var(--h), var(--s), var(--l));
+}
+.cf-arcs path:hover {
+  fill: var(--dark-hover);
+}
+.cf use {
+  pointer-events: none;
+}
+.cf [baseline-shift="super"] {
+  font-size: 80%;
+}
+
+@media (min-width: 700px) {
+  .cf {
+    max-width: 1000px;
+  }
+}
