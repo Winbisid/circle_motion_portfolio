@@ -1,3 +1,5 @@
 import Wheel from "./wheel/Wheel";
+import Nav from "./nav/Nav";
+import Switch from "./switch/switchBtn";
 
-export { Wheel };
+export { Wheel, Nav, Switch };
