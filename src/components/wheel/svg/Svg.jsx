@@ -64,6 +64,7 @@ export default function Svg({ deg, sectionName, path, placeDir, hover }) {
     >
       <Gradient />
       <motion.path
+        className={link && "linkedSvg"}
         fill={fillColor}
         initial={{ opacity: 0 }}
         animate={{
