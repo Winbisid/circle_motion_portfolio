@@ -48,7 +48,6 @@ export default function Svg({ deg, sectionName, path, placeDir, hover }) {
   }, [hover]);
 
   return (
-    // <g>
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
@@ -66,7 +65,9 @@ export default function Svg({ deg, sectionName, path, placeDir, hover }) {
       <Gradient />
       <motion.path
         fill={fillColor}
+        initial={{ opacity: 0 }}
         animate={{
+          opacity: 1,
           rotate: [null, deg[sectionName]],
           // x: placeDir === "right" ? [400, 0] : [-400, 0],
         }}

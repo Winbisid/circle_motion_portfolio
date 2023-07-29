@@ -86,12 +86,18 @@ export default function WheelSection({
         )}
 
         {/* paths for the arrow containers */}
+        {/* <g> */}
         <motion.path
           d={finalLeft}
           whileHover={() => setFinalLeftHover(true)}
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
+        {/* <motion.text x={leftArrowPos.x} y={leftArrowPos.y}>
+          oksssllll
+        </motion.text> */}
+        {/* </g> */}
+
         <motion.path
           whileHover={() => setFinalRightHover(true)}
           onHoverEnd={() => setFinalRightHover(false)}
@@ -164,6 +170,9 @@ export default function WheelSection({
           leftArrowClick={() =>
             leftArrowClick(iconPair, setIconPair, numOfIcons)
           }
+          svgDeg={svgObj.deg[activeSection.name]}
+          innerPathHover={innerLeftHover}
+          name={leftIcon.name}
         />
         <RightArrow
           hover={finalRightHover}
@@ -173,7 +182,29 @@ export default function WheelSection({
           rightArrowClick={() =>
             rightArrowClick(iconPair, setIconPair, numOfIcons)
           }
+          svgDeg={svgObj.deg[activeSection.name]}
+          innerPathHover={innerRightHover}
+          name={rightIcon.name}
         />
+
+        {/* <svg
+          width={200}
+          x={leftArrowPos.x}
+          y={leftArrowPos.y}
+          viewBox="-100 -100 900 500"
+        >
+          <circle cx={150} cy={150} r={190}></circle>
+          <text
+            x={150}
+            y={150}
+            fill="white"
+            fontSize={19}
+            textAnchor="middle"
+            dominantBaseline={"central"}
+          >
+            {name}
+          </text>
+        </svg> */}
       </g>
     </g>
   );
