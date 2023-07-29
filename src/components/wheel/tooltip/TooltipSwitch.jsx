@@ -17,7 +17,7 @@ export default function TooltipSwitch({ tooltips, setTooltips }) {
           // backgroundColor: "indigo",
           borderRadius: "50%",
           margin: 20,
-          //   visibility: "hidden",
+          visibility: "hidden",
         }}
         whileHover={() => setVisibility("visible")}
         onHoverEnd={() => setVisibility("hidden")}
