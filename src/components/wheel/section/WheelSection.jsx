@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LeftArrow, RightArrow, Svg } from "../svg";
-import { leftArrowClick, rightArrowClick } from "../../../utils";
+import { Arrow, Svg } from "../svg";
+import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
 
 export default function WheelSection({
   moveWheel,
@@ -162,29 +162,26 @@ export default function WheelSection({
           ))}
 
         {/* left and right arrows for switching icons */}
-        <LeftArrow
+        <Arrow
           hover={finalLeftHover}
-          x={leftArrowPos.x}
-          y={leftArrowPos.y}
+          path={ARROWPATHS.leftArrow}
+          pos={leftArrowPos}
           deg={arrowRotateDeg}
-          leftArrowClick={() =>
-            leftArrowClick(iconPair, setIconPair, numOfIcons)
-          }
           svgDeg={svgObj.deg[activeSection.name]}
           innerPathHover={innerLeftHover}
           name={leftIcon.name}
+          arrowClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
-        <RightArrow
+
+        <Arrow
           hover={finalRightHover}
-          x={rightArrowPos.x}
-          y={rightArrowPos.y}
+          path={ARROWPATHS.rightArrow}
+          pos={rightArrowPos}
           deg={arrowRotateDeg}
-          rightArrowClick={() =>
-            rightArrowClick(iconPair, setIconPair, numOfIcons)
-          }
           svgDeg={svgObj.deg[activeSection.name]}
           innerPathHover={innerRightHover}
           name={rightIcon.name}
+          arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
         />
 
         {/* <svg

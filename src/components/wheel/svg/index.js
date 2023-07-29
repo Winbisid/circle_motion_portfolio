@@ -1,5 +1,4 @@
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
 import Svg from "./Svg";
+import Arrow from "./Arrow";
 
-export { LeftArrow, RightArrow, Svg };
+export { Svg, Arrow };
