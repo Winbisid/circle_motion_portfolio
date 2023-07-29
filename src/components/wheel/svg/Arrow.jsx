@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import Tooltip from "../tooltip/Tooltip";
+import TooltipsContext from "../../../utils/tooltipsContext";
 
 export default function Arrow({
   hover,
@@ -13,6 +14,7 @@ export default function Arrow({
   path,
 }) {
   const [alpha, setAlpha] = useState(0);
+  const tooltips = useContext(TooltipsContext);
 
   const { viewBox, d } = path;
   const { x, y } = pos;
@@ -44,7 +46,7 @@ export default function Arrow({
           d={d}
         />
       </motion.svg>
-      {
+      {tooltips && (
         <Tooltip
           name={name}
           svgDeg={svgDeg}
@@ -52,7 +54,7 @@ export default function Arrow({
           y={y}
           hover={innerPathHover}
         />
-      }
+      )}
     </g>
   );
 }

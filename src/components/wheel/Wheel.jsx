@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { PATHS, SVGPATHS } from "../../utils";
 import WheelSection from "./section/WheelSection";
+import TooltipSwitch from "./tooltip/TooltipSwitch";
+import TooltipsContext from "../../utils/tooltipsContext";
 import "./Wheel.css";
 
 export default function Wheel() {
@@ -10,6 +12,8 @@ export default function Wheel() {
   const [section, setSection] = useState({ selected: false, name: "main" });
   const [alpha, setAlpha] = useState(0);
   const [textOpacity, setTextOpacity] = useState(0);
+
+  const [tooltips, setTooltips] = useState(false);
 
   // degree to rotate centered text
   const textDeg = -PATHS.find((item) => item.sectionName === section.name)
@@ -48,71 +52,74 @@ export default function Wheel() {
   }
 
   return (
-    <motion.div
-      initial={{ "--rotate": "0deg" }}
-      animate={{ "--rotate": `${wheelDeg}deg` }}
-      transition={{ duration: 2 }}
-    >
-      <svg
-        id="wheel"
-        className="cf"
-        viewBox="0 0 300 300"
-        style={{ transform: "rotate(var(--rotate))" }}
+    <TooltipsContext.Provider value={tooltips}>
+      <motion.div
+        initial={{ "--rotate": "0deg" }}
+        animate={{ "--rotate": `${wheelDeg}deg` }}
+        transition={{ duration: 2 }}
       >
-        {PATHS.map((path) => (
-          <WheelSection
-            key={path.sectionName}
-            moveWheel={clickTopic}
-            pathsDef={path}
-            svgObj={SVGPATHS[path.sectionName]}
-            activeSection={section}
-          />
-        ))}
-
-        <motion.svg
-          width="200"
-          height="200"
-          viewBox="0 0 200 200"
-          visibility={"visible"}
-          initial="hidden"
-          animate={`${smallCircleVisible}`}
-          onClick={() => clickTopic(0, "main")}
+        <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
+        <svg
+          id="wheel"
+          className="cf"
+          viewBox="0 0 300 300"
+          style={{ transform: "rotate(var(--rotate))" }}
         >
-          <motion.circle
-            cx="150"
-            cy="150"
-            r="40"
-            fill={`rgba(102, 51, 153, ${alpha})`}
-            stroke="#00E8FF"
-            variants={draw}
-            whileHover={() => setAlpha(0.1)}
-            onHoverEnd={() => setAlpha(0)}
-          />
-          <motion.text
-            x={150}
-            y={150}
-            fill={"url(#rad)"}
-            fontWeight={600}
-            initial={{ opacity: 0 }}
-            animate={{
-              rotate: [null, textDeg || 0],
-              opacity: textOpacity,
-            }}
-            transition={{
-              type: "spring",
-              // duration: 1.5,
-              damping: 3,
-              stiffness: 50,
-              restSpeed: 0.6,
-              restDelta: 0.5,
-            }}
-            textAnchor={"middle"}
-            dominantBaseline={"central"}
+          {PATHS.map((path) => (
+            <WheelSection
+              key={path.sectionName}
+              moveWheel={clickTopic}
+              pathsDef={path}
+              svgObj={SVGPATHS[path.sectionName]}
+              activeSection={section}
+            />
+          ))}
+
+          <motion.svg
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+            visibility={"visible"}
+            initial="hidden"
+            animate={`${smallCircleVisible}`}
+            onClick={() => clickTopic(0, "main")}
           >
-            {section.name}
-          </motion.text>
-        </motion.svg>
-      </svg>
-    </motion.div>
+            <motion.circle
+              cx="150"
+              cy="150"
+              r="40"
+              fill={`rgba(102, 51, 153, ${alpha})`}
+              stroke="#00E8FF"
+              variants={draw}
+              whileHover={() => setAlpha(0.1)}
+              onHoverEnd={() => setAlpha(0)}
+            />
+            <motion.text
+              x={150}
+              y={150}
+              fill={"url(#rad)"}
+              fontWeight={600}
+              initial={{ opacity: 0 }}
+              animate={{
+                rotate: [null, textDeg || 0],
+                opacity: textOpacity,
+              }}
+              transition={{
+                type: "spring",
+                // duration: 1.5,
+                damping: 3,
+                stiffness: 50,
+                restSpeed: 0.6,
+                restDelta: 0.5,
+              }}
+              textAnchor={"middle"}
+              dominantBaseline={"central"}
+            >
+              {section.name}
+            </motion.text>
+          </motion.svg>
+        </svg>
+      </motion.div>
+    </TooltipsContext.Provider>
   );
 }
