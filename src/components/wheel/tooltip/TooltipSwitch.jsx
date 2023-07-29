@@ -1,3 +1,6 @@
+import solidTooltip from "../../../assets/tooltip.svg";
+import lineTooltip from "../../../assets/tooltip-line.svg";
+
 export default function TooltipSwitch({ tooltips, setTooltips }) {
   return (
     <div
@@ -6,14 +9,21 @@ export default function TooltipSwitch({ tooltips, setTooltips }) {
         position: "absolute",
         top: 0,
         left: 0,
-        backgroundColor: tooltips ? "indigo" : "coral",
-        width: 75,
-        height: 75,
+        backgroundColor: tooltips ? "purple" : "indigo",
+        // backgroundColor: "indigo",
         borderRadius: "50%",
         margin: 20,
       }}
     >
-      {tooltips ? "on" : "off"}
+      <img
+        src={tooltips ? solidTooltip : lineTooltip}
+        width={80}
+        style={{
+          display: "flex",
+          padding: 15,
+          //   position: "relative",
+        }}
+      />
     </div>
   );
 }
