@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { PATHS, SVGPATHS } from "../../utils";
 import WheelSection from "./section/WheelSection";
 import TooltipSwitch from "./tooltip/TooltipSwitch";
-import TooltipsContext from "../../utils/tooltipsContext";
+import TooltipsContext from "../../utils/wheelPortfolio/tooltipsContext";
 import "./Wheel.css";
 
 export default function Wheel() {

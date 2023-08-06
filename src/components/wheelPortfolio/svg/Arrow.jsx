@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import Tooltip from "../tooltip/Tooltip";
-import TooltipsContext from "../../../utils/tooltipsContext";
+import TooltipsContext from "../../../utils/wheelPortfolio/tooltipsContext";
 
 export default function Arrow({
   hover,
