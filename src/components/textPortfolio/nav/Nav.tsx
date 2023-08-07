@@ -18,7 +18,11 @@ export default function Nav() {
   );
 }
 
-function Option({ name }) {
+interface OptionProps {
+  name: string;
+}
+
+function Option({ name }: OptionProps) {
   return (
     <li>
       <a>{name}</a>
