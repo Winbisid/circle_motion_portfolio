@@ -12,7 +12,7 @@ interface WheelSectionProps {
   moveWheel: (wheelDeg: number, sectionName: string) => void;
   pathsDef: PathsInterface;
   svgObj: SvgPathsInterface;
-  activeSection: { selected: boolean; name: string };
+  activeSection: string;
 }
 
 export default function WheelSection({
@@ -129,11 +129,7 @@ export default function WheelSection({
 
       <g transform={`translate(${translateDeg})`}>
         {/* main section icon */}
-        <Svg
-          deg={svgObj.deg}
-          sectionName={activeSection.name}
-          path={svgObj.main}
-        />
+        <Svg deg={svgObj.deg} sectionName={activeSection} path={svgObj.main} />
 
         {/* left and right icons and redirectable if link is available */}
         {leftIcon &&
@@ -142,7 +138,7 @@ export default function WheelSection({
               <Svg
                 key={leftIcon.name}
                 deg={svgObj.deg}
-                sectionName={activeSection.name}
+                sectionName={activeSection}
                 path={leftIcon}
                 placeDir={"left"}
                 hover={innerLeftHover}
@@ -152,7 +148,7 @@ export default function WheelSection({
             <Svg
               key={leftIcon.name}
               deg={svgObj.deg}
-              sectionName={activeSection.name}
+              sectionName={activeSection}
               path={leftIcon}
               placeDir={"left"}
               hover={innerLeftHover}
@@ -165,7 +161,7 @@ export default function WheelSection({
               <Svg
                 key={rightIcon.name}
                 deg={svgObj.deg}
-                sectionName={activeSection.name}
+                sectionName={activeSection}
                 path={rightIcon}
                 placeDir={"right"}
                 hover={innerRightHover}
@@ -175,7 +171,7 @@ export default function WheelSection({
             <Svg
               key={rightIcon.name}
               deg={svgObj.deg}
-              sectionName={activeSection.name}
+              sectionName={activeSection}
               path={rightIcon}
               placeDir={"right"}
               hover={innerRightHover}
@@ -188,7 +184,7 @@ export default function WheelSection({
           path={ARROW_PATHS.leftArrow}
           pos={leftArrowPos}
           deg={arrowRotateDeg}
-          svgDeg={svgObj.deg[activeSection.name]}
+          svgDeg={svgObj.deg[activeSection]}
           innerPathHover={innerLeftHover}
           name={leftIcon.name}
           arrowClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
@@ -199,7 +195,7 @@ export default function WheelSection({
           path={ARROW_PATHS.rightArrow}
           pos={rightArrowPos}
           deg={arrowRotateDeg}
-          svgDeg={svgObj.deg[activeSection.name]}
+          svgDeg={svgObj.deg[activeSection]}
           innerPathHover={innerRightHover}
           name={rightIcon.name}
           arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
