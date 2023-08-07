@@ -10,7 +10,7 @@ import "./Wheel.css";
 export default function Wheel() {
   const [wheelDeg, setWheelDeg] = useState(0);
   const [smallCircleVisible, setSmallCircleVisible] = useState("hidden");
-  const [section, setSection] = useState({ selected: false, name: "main" });
+  const [section, setSection] = useState("main");
   const [alpha, setAlpha] = useState(0);
   const [textOpacity, setTextOpacity] = useState(0);
 
@@ -18,7 +18,7 @@ export default function Wheel() {
 
   // degree to rotate centered text
   const textDeg: number = -PATHS.find(
-    (item: PathsInterface) => item.sectionName === section.name
+    (item: PathsInterface) => item.sectionName === section
   )?.wheelDeg;
 
   const draw = {
@@ -42,10 +42,7 @@ export default function Wheel() {
     setSmallCircleVisible("visible");
     setTextOpacity(1);
 
-    setSection({
-      selected: sectionName === "main" ? false : true,
-      name: sectionName,
-    });
+    setSection(sectionName);
 
     setTimeout(() => {
       setSmallCircleVisible("hidden");
@@ -117,7 +114,7 @@ export default function Wheel() {
               textAnchor={"middle"}
               dominantBaseline={"central"}
             >
-              {section.name}
+              {section}
             </motion.text>
           </motion.svg>
         </svg>

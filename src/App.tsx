@@ -1,4 +1,4 @@
-import { Wheel } from "./components";
+import { Switch, Wheel } from "./components";
 import "./App.css";
 
 function App() {
