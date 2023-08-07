@@ -1,3 +1,10 @@
+import Nav from "./nav/Nav";
+
 export default function Text() {
-  return <>Text Portfolio</>;
+  return (
+    <>
+      <Nav />
+      Text Portfolio
+    </>
+  );
 }
