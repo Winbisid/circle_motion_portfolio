@@ -1,7 +1,13 @@
+import React from "react";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "/vite.svg";
 
-export default function Switch({ isWheel, setWheelPortfolio }) {
+interface SwitchProps {
+  isWheel: boolean;
+  setWheelPortfolio: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
   function switchItUp() {
     setWheelPortfolio((prev) => !prev);
 
@@ -21,7 +27,11 @@ export default function Switch({ isWheel, setWheelPortfolio }) {
       }}
       onClick={switchItUp}
     >
-      <img src={isWheel ? reactLogo : viteLogo} style={{}} />
+      <img
+        src={isWheel ? reactLogo : viteLogo}
+        style={{}}
+        alt={isWheel ? "wheel" : "typewriter"}
+      />
     </div>
   );
 }
