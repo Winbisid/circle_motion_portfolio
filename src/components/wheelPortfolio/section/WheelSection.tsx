@@ -2,34 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Arrow, Svg } from "../svg";
 import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
+import { PathsInterface, SvgPathsInterface } from "../../../interfaces";
 
 interface WheelSectionProps {
   moveWheel: (wheelDeg: number, sectionName: string) => void;
-  pathsDef: {
-    sectionName: string;
-    wheelDeg: number;
-    outer: string;
-    innerLeft: string;
-    innerRight: string;
-    finalLeft: string;
-    finalRight: string;
-    translateDeg: string;
-    leftArrowPos: { x: number; y: number };
-    rightArrowPos: { x: number; y: number };
-    arrowRotateDeg: number;
-  };
-  svgObj: {
-    sectionName: string;
-    deg: {
-      main: number;
-      expertise: number;
-      projects: number;
-      ongoing: number;
-      contact: number;
-    };
-    icons: object[];
-  };
-  activeSection: string;
+  pathsDef: PathsInterface;
+  svgObj: SvgPathsInterface;
+  activeSection: { selected: boolean; name: string };
 }
 
 export default function WheelSection({
@@ -46,8 +25,16 @@ export default function WheelSection({
 
   const [iconPair, setIconPair] = useState({ leftId: 1, rightId: 2 });
 
-  const [leftIcon, setLeftIcon] = useState({});
-  const [rightIcon, setRightIcon] = useState({});
+  const emptyIconPlaceholder = {
+    width: 0,
+    d: "",
+    viewBox: "",
+    name: "",
+    link: "",
+  };
+
+  const [leftIcon, setLeftIcon] = useState(emptyIconPlaceholder);
+  const [rightIcon, setRightIcon] = useState(emptyIconPlaceholder);
 
   // total number of icons
   let numOfIcons: number;
