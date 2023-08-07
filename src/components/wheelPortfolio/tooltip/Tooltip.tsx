@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 
 interface TooltipProps {
-  hover: boolean;
+  onHover: boolean;
   x: number;
   y: number;
   name: string;
   svgDeg: number;
 }
 
-export default function Tooltip({ hover, x, y, name, svgDeg }: TooltipProps) {
+export default function Tooltip({ onHover, x, y, name, svgDeg }: TooltipProps) {
   const degLen: number = name?.length * 6;
 
   return (
-    hover && (
+    onHover && (
       <motion.svg
         width={150}
         x={x}
