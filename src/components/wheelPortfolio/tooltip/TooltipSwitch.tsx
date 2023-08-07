@@ -3,12 +3,20 @@ import { motion } from "framer-motion";
 import solidTooltip from "../../../assets/tooltip.svg";
 import lineTooltip from "../../../assets/tooltip-line.svg";
 
-export default function TooltipSwitch({ tooltips, setTooltips }) {
+interface TooltipSwitchProps {
+  tooltips: boolean;
+  setTooltips: Function;
+}
+
+export default function TooltipSwitch({
+  tooltips,
+  setTooltips,
+}: TooltipSwitchProps) {
   const [visibility, setVisibility] = useState("hidden");
   return (
     <div>
       <motion.div
-        onClick={() => setTooltips((prev) => !prev)}
+        onClick={() => setTooltips((prev: boolean) => !prev)}
         style={{
           position: "absolute",
           top: 0,
@@ -29,6 +37,7 @@ export default function TooltipSwitch({ tooltips, setTooltips }) {
             display: "flex",
             padding: 15,
           }}
+          alt="information icon"
         />
       </motion.div>
       <motion.div
