@@ -8,3 +8,11 @@
 - [x] Try to fix glitching icon bugs on load and on switch
 - [x] make icons with links a different color on mobile cos they can't be hovered on to know the difference
 - [~] if svg position is left, move the icon from the left pos to the right one smoothly (not needed because of fading animation)
+
+## _TypeScript Transition_
+
+- [ ] Arrow.tsx
+- [x] Gradient.tsx
+- [ ] Svg.tsx
+- [x] TooltipSwitch.tsx
+- [x] Tooltip.tsx
