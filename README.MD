@@ -11,7 +11,7 @@
 
 ## _TypeScript Transition_
 
-- [ ] Svg.tsx
+- [ ] WheelSection.tsx
 - [x] svg/index.ts
 - [x] Arrow.tsx
 - [x] Gradient.tsx

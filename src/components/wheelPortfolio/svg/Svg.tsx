@@ -11,9 +11,19 @@ interface SvgProps {
     contact: number;
   };
   sectionName: string;
-  path: string;
-  placeDir: "left" | "right";
-  hover: boolean;
+  path: {
+    width: number;
+    x?: number;
+    y?: number;
+    d: string;
+    viewBox: string;
+    leftPos?: { x: number; y: number };
+    rightPos?: { x: number; y: number };
+    link?: string;
+    name: string;
+  };
+  placeDir?: "left" | "right";
+  hover?: boolean;
 }
 
 export default function Svg({
@@ -23,20 +33,6 @@ export default function Svg({
   placeDir,
   hover,
 }: SvgProps) {
-  // interface PathProps {
-  //   width: number;
-  //   x: number;
-  //   y: number;
-  //   d: string;
-  //   viewBox: string;
-  //   leftPos: { x: number; y: number };
-  //   rightPos: { x: number; y: number };
-  //   link: string;
-  //   name: string;
-  // }
-
-  // const { width, x, y, d, viewBox, leftPos, rightPos, link, name }: PathProps =
-  //   path;
   const { width, x, y, d, viewBox, leftPos, rightPos, link, name } = path;
 
   const [fillColor, setFillColor] = useState("#00E8FF");

@@ -3,12 +3,41 @@ import { motion } from "framer-motion";
 import { Arrow, Svg } from "../svg";
 import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
 
+interface WheelSectionProps {
+  moveWheel: (wheelDeg: number, sectionName: string) => void;
+  pathsDef: {
+    sectionName: string;
+    wheelDeg: number;
+    outer: string;
+    innerLeft: string;
+    innerRight: string;
+    finalLeft: string;
+    finalRight: string;
+    translateDeg: string;
+    leftArrowPos: { x: number; y: number };
+    rightArrowPos: { x: number; y: number };
+    arrowRotateDeg: number;
+  };
+  svgObj: {
+    sectionName: string;
+    deg: {
+      main: number;
+      expertise: number;
+      projects: number;
+      ongoing: number;
+      contact: number;
+    };
+    icons: object[];
+  };
+  activeSection: string;
+}
+
 export default function WheelSection({
   moveWheel,
   pathsDef,
   svgObj,
   activeSection,
-}) {
+}: WheelSectionProps) {
   const [innerLeftHover, setInnerLeftHover] = useState(false);
   const [innerRightHover, setInnerRightHover] = useState(false);
 
@@ -21,7 +50,7 @@ export default function WheelSection({
   const [rightIcon, setRightIcon] = useState({});
 
   // total number of icons
-  let numOfIcons;
+  let numOfIcons: number;
 
   // make only 2(or any number) or more icons loop
   // if (svgObj.icons.length > 2) {
@@ -93,9 +122,6 @@ export default function WheelSection({
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
-        {/* <motion.text x={leftArrowPos.x} y={leftArrowPos.y}>
-          oksssllll
-        </motion.text> */}
         {/* </g> */}
 
         <motion.path
