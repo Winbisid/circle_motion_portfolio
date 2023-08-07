@@ -1,7 +1,7 @@
 import PATHS from "./wheelPortfolio/paths";
-import SVGPATHS from "./wheelPortfolio/svgpaths";
+import SVG_PATHS from "./wheelPortfolio/svgpaths";
 import leftArrowClick from "./wheelPortfolio/leftArrowClick";
 import rightArrowClick from "./wheelPortfolio/rightArrowClick";
-import ARROWPATHS from "./wheelPortfolio/arrowPaths";
+import ARROW_PATHS from "./wheelPortfolio/arrowPaths";
 
-export { PATHS, SVGPATHS, ARROWPATHS, leftArrowClick, rightArrowClick };
+export { PATHS, SVG_PATHS, ARROW_PATHS, leftArrowClick, rightArrowClick };

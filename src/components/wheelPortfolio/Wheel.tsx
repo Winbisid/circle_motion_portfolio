@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { PATHS, SVGPATHS } from "../../utils";
+import { PATHS, SVG_PATHS } from "../../utils";
 import WheelSection from "./section/WheelSection";
 import TooltipSwitch from "./tooltip/TooltipSwitch";
 import TooltipsContext from "../../utils/wheelPortfolio/tooltipsContext";
@@ -72,7 +72,7 @@ export default function Wheel() {
               key={path.sectionName}
               moveWheel={clickTopic}
               pathsDef={path}
-              svgObj={SVGPATHS[path.sectionName]}
+              svgObj={SVG_PATHS[path.sectionName]}
               activeSection={section}
             />
           ))}

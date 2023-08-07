@@ -1,4 +1,4 @@
-const SVGPATHS = {
+const SVG_PATHS = {
   expertise: {
     sectionName: "expertise",
     deg: {
@@ -337,4 +337,4 @@ const SVGPATHS = {
   },
 };
 
-export default SVGPATHS;
+export default SVG_PATHS;

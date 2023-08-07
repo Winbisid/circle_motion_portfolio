@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Arrow, Svg } from "../svg";
-import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
+import { leftArrowClick, rightArrowClick, ARROW_PATHS } from "../../../utils";
 import {
   PathsInterface,
   SvgPathsInterface,
@@ -185,7 +185,7 @@ export default function WheelSection({
         {/* left and right arrows for switching icons */}
         <Arrow
           hover={finalLeftHover}
-          path={ARROWPATHS.leftArrow}
+          path={ARROW_PATHS.leftArrow}
           pos={leftArrowPos}
           deg={arrowRotateDeg}
           svgDeg={svgObj.deg[activeSection.name]}
@@ -196,7 +196,7 @@ export default function WheelSection({
 
         <Arrow
           hover={finalRightHover}
-          path={ARROWPATHS.rightArrow}
+          path={ARROW_PATHS.rightArrow}
           pos={rightArrowPos}
           deg={arrowRotateDeg}
           svgDeg={svgObj.deg[activeSection.name]}
