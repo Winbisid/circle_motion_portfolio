@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Arrow, Svg } from "../svg";
-import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
+import { leftArrowClick, rightArrowClick, ARROW_PATHS } from "../../../utils";
+import {
+  PathsInterface,
+  SvgPathsInterface,
+  IconsInterface,
+} from "../../../interfaces";
+
+interface WheelSectionProps {
+  moveWheel: (wheelDeg: number, sectionName: string) => void;
+  pathsDef: PathsInterface;
+  svgObj: SvgPathsInterface;
+  activeSection: string;
+}
 
 export default function WheelSection({
   moveWheel,
   pathsDef,
   svgObj,
   activeSection,
-}) {
+}: WheelSectionProps) {
   const [innerLeftHover, setInnerLeftHover] = useState(false);
   const [innerRightHover, setInnerRightHover] = useState(false);
 
@@ -17,11 +29,19 @@ export default function WheelSection({
 
   const [iconPair, setIconPair] = useState({ leftId: 1, rightId: 2 });
 
-  const [leftIcon, setLeftIcon] = useState({});
-  const [rightIcon, setRightIcon] = useState({});
+  const emptyIconPlaceholder = {
+    width: 0,
+    d: "",
+    viewBox: "",
+    name: "",
+    link: "",
+  };
+
+  const [leftIcon, setLeftIcon] = useState(emptyIconPlaceholder);
+  const [rightIcon, setRightIcon] = useState(emptyIconPlaceholder);
 
   // total number of icons
-  let numOfIcons;
+  let numOfIcons: number;
 
   // make only 2(or any number) or more icons loop
   // if (svgObj.icons.length > 2) {
@@ -44,8 +64,12 @@ export default function WheelSection({
 
   // find the pair of icons to fill the wheel
   useEffect(() => {
-    setLeftIcon(svgObj.icons.find((icon) => icon.id === iconPair.leftId));
-    setRightIcon(svgObj.icons.find((icon) => icon.id === iconPair.rightId));
+    setLeftIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.leftId)
+    );
+    setRightIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.rightId)
+    );
   }, [iconPair]);
 
   return (
@@ -93,9 +117,6 @@ export default function WheelSection({
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
-        {/* <motion.text x={leftArrowPos.x} y={leftArrowPos.y}>
-          oksssllll
-        </motion.text> */}
         {/* </g> */}
 
         <motion.path
@@ -108,11 +129,7 @@ export default function WheelSection({
 
       <g transform={`translate(${translateDeg})`}>
         {/* main section icon */}
-        <Svg
-          deg={svgObj.deg}
-          sectionName={activeSection.name}
-          path={svgObj.main}
-        />
+        <Svg deg={svgObj.deg} sectionName={activeSection} path={svgObj.main} />
 
         {/* left and right icons and redirectable if link is available */}
         {leftIcon &&
@@ -121,7 +138,7 @@ export default function WheelSection({
               <Svg
                 key={leftIcon.name}
                 deg={svgObj.deg}
-                sectionName={activeSection.name}
+                sectionName={activeSection}
                 path={leftIcon}
                 placeDir={"left"}
                 hover={innerLeftHover}
@@ -131,7 +148,7 @@ export default function WheelSection({
             <Svg
               key={leftIcon.name}
               deg={svgObj.deg}
-              sectionName={activeSection.name}
+              sectionName={activeSection}
               path={leftIcon}
               placeDir={"left"}
               hover={innerLeftHover}
@@ -144,7 +161,7 @@ export default function WheelSection({
               <Svg
                 key={rightIcon.name}
                 deg={svgObj.deg}
-                sectionName={activeSection.name}
+                sectionName={activeSection}
                 path={rightIcon}
                 placeDir={"right"}
                 hover={innerRightHover}
@@ -154,7 +171,7 @@ export default function WheelSection({
             <Svg
               key={rightIcon.name}
               deg={svgObj.deg}
-              sectionName={activeSection.name}
+              sectionName={activeSection}
               path={rightIcon}
               placeDir={"right"}
               hover={innerRightHover}
@@ -164,10 +181,10 @@ export default function WheelSection({
         {/* left and right arrows for switching icons */}
         <Arrow
           hover={finalLeftHover}
-          path={ARROWPATHS.leftArrow}
+          path={ARROW_PATHS.leftArrow}
           pos={leftArrowPos}
           deg={arrowRotateDeg}
-          svgDeg={svgObj.deg[activeSection.name]}
+          svgDeg={svgObj.deg[activeSection]}
           innerPathHover={innerLeftHover}
           name={leftIcon.name}
           arrowClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
@@ -175,10 +192,10 @@ export default function WheelSection({
 
         <Arrow
           hover={finalRightHover}
-          path={ARROWPATHS.rightArrow}
+          path={ARROW_PATHS.rightArrow}
           pos={rightArrowPos}
           deg={arrowRotateDeg}
-          svgDeg={svgObj.deg[activeSection.name]}
+          svgDeg={svgObj.deg[activeSection]}
           innerPathHover={innerRightHover}
           name={rightIcon.name}
           arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}

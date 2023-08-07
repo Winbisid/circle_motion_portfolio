@@ -1,5 +1,13 @@
+import React from "react";
+
 // switch svg icon positions on right arrow click
-export default function rightArrowClick(iconPair, setIconPair, numOfIcons) {
+export default function rightArrowClick(
+  iconPair: { leftId: number; rightId: number },
+  setIconPair: React.Dispatch<
+    React.SetStateAction<{ leftId: number; rightId: number }>
+  >,
+  numOfIcons: number
+) {
   if (numOfIcons) {
     if (iconPair.rightId < numOfIcons) {
       setIconPair((prev) => ({

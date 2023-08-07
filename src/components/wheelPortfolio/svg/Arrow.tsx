@@ -1,7 +1,18 @@
 import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import Tooltip from "../tooltip/Tooltip";
-import TooltipsContext from "../../../utils/tooltipsContext";
+import TooltipsContext from "../../../utils/wheelPortfolio/tooltipsContext";
+
+interface ArrowProps {
+  hover: boolean;
+  pos: { x: number; y: number };
+  deg: number;
+  arrowClick: Function;
+  svgDeg: number;
+  innerPathHover: boolean;
+  name: string;
+  path: { viewBox: string; d: string };
+}
 
 export default function Arrow({
   hover,
@@ -12,7 +23,7 @@ export default function Arrow({
   innerPathHover,
   name,
   path,
-}) {
+}: ArrowProps) {
   const [alpha, setAlpha] = useState(0);
   const tooltips = useContext(TooltipsContext);
 
@@ -52,7 +63,7 @@ export default function Arrow({
           svgDeg={svgDeg}
           x={x}
           y={y}
-          hover={innerPathHover}
+          onHover={innerPathHover}
         />
       )}
     </g>

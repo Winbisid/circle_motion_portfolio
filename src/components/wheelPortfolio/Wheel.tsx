@@ -1,27 +1,29 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { PATHS, SVGPATHS } from "../../utils";
+import { PATHS, SVG_PATHS } from "../../utils";
 import WheelSection from "./section/WheelSection";
 import TooltipSwitch from "./tooltip/TooltipSwitch";
-import TooltipsContext from "../../utils/tooltipsContext";
+import TooltipsContext from "../../utils/wheelPortfolio/tooltipsContext";
+import { PathsInterface } from "../../interfaces";
 import "./Wheel.css";
 
 export default function Wheel() {
   const [wheelDeg, setWheelDeg] = useState(0);
   const [smallCircleVisible, setSmallCircleVisible] = useState("hidden");
-  const [section, setSection] = useState({ selected: false, name: "main" });
+  const [section, setSection] = useState("main");
   const [alpha, setAlpha] = useState(0);
   const [textOpacity, setTextOpacity] = useState(0);
 
   const [tooltips, setTooltips] = useState(false);
 
   // degree to rotate centered text
-  const textDeg = -PATHS.find((item) => item.sectionName === section.name)
-    ?.wheelDeg;
+  const textDeg: number = -PATHS.find(
+    (item: PathsInterface) => item.sectionName === section
+  )?.wheelDeg;
 
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
-    visible: (i) => {
+    visible: (i: number) => {
       const delay = 1 + i * 0.5;
       return {
         pathLength: 1,
@@ -35,15 +37,12 @@ export default function Wheel() {
   };
 
   // rotate wheel onClick & display centered text
-  function clickTopic(wheelDeg, sectionName) {
+  function clickTopic(wheelDeg: number, sectionName: string): void {
     setWheelDeg(wheelDeg);
     setSmallCircleVisible("visible");
     setTextOpacity(1);
 
-    setSection({
-      selected: sectionName === "main" ? false : true,
-      name: sectionName,
-    });
+    setSection(sectionName);
 
     setTimeout(() => {
       setSmallCircleVisible("hidden");
@@ -65,12 +64,12 @@ export default function Wheel() {
           viewBox="0 0 300 300"
           style={{ transform: "rotate(var(--rotate))" }}
         >
-          {PATHS.map((path) => (
+          {PATHS.map((path: PathsInterface) => (
             <WheelSection
               key={path.sectionName}
               moveWheel={clickTopic}
               pathsDef={path}
-              svgObj={SVGPATHS[path.sectionName]}
+              svgObj={SVG_PATHS[path.sectionName]}
               activeSection={section}
             />
           ))}
@@ -115,7 +114,7 @@ export default function Wheel() {
               textAnchor={"middle"}
               dominantBaseline={"central"}
             >
-              {section.name}
+              {section}
             </motion.text>
           </motion.svg>
         </svg>
