@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LeftArrow, RightArrow, Svg } from "../svg";
-import { leftArrowClick, rightArrowClick } from "../../../utils";
+import { Arrow, Svg } from "../svg";
+import { leftArrowClick, rightArrowClick, ARROW_PATHS } from "../../../utils";
+import {
+  PathsInterface,
+  SvgPathsInterface,
+  IconsInterface,
+} from "../../../interfaces";
+
+interface WheelSectionProps {
+  moveWheel: (wheelDeg: number, sectionName: string) => void;
+  pathsDef: PathsInterface;
+  svgObj: SvgPathsInterface;
+  activeSection: { selected: boolean; name: string };
+}
 
 export default function WheelSection({
   moveWheel,
   pathsDef,
   svgObj,
   activeSection,
-}) {
+}: WheelSectionProps) {
   const [innerLeftHover, setInnerLeftHover] = useState(false);
   const [innerRightHover, setInnerRightHover] = useState(false);
 
@@ -17,11 +29,19 @@ export default function WheelSection({
 
   const [iconPair, setIconPair] = useState({ leftId: 1, rightId: 2 });
 
-  const [leftIcon, setLeftIcon] = useState({});
-  const [rightIcon, setRightIcon] = useState({});
+  const emptyIconPlaceholder = {
+    width: 0,
+    d: "",
+    viewBox: "",
+    name: "",
+    link: "",
+  };
+
+  const [leftIcon, setLeftIcon] = useState(emptyIconPlaceholder);
+  const [rightIcon, setRightIcon] = useState(emptyIconPlaceholder);
 
   // total number of icons
-  let numOfIcons;
+  let numOfIcons: number;
 
   // make only 2(or any number) or more icons loop
   // if (svgObj.icons.length > 2) {
@@ -44,8 +64,12 @@ export default function WheelSection({
 
   // find the pair of icons to fill the wheel
   useEffect(() => {
-    setLeftIcon(svgObj.icons.find((icon) => icon.id === iconPair.leftId));
-    setRightIcon(svgObj.icons.find((icon) => icon.id === iconPair.rightId));
+    setLeftIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.leftId)
+    );
+    setRightIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.rightId)
+    );
   }, [iconPair]);
 
   return (
@@ -86,12 +110,15 @@ export default function WheelSection({
         )}
 
         {/* paths for the arrow containers */}
+        {/* <g> */}
         <motion.path
           d={finalLeft}
           whileHover={() => setFinalLeftHover(true)}
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
+        {/* </g> */}
+
         <motion.path
           whileHover={() => setFinalRightHover(true)}
           onHoverEnd={() => setFinalRightHover(false)}
@@ -156,24 +183,46 @@ export default function WheelSection({
           ))}
 
         {/* left and right arrows for switching icons */}
-        <LeftArrow
+        <Arrow
           hover={finalLeftHover}
+          path={ARROW_PATHS.leftArrow}
+          pos={leftArrowPos}
+          deg={arrowRotateDeg}
+          svgDeg={svgObj.deg[activeSection.name]}
+          innerPathHover={innerLeftHover}
+          name={leftIcon.name}
+          arrowClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
+        />
+
+        <Arrow
+          hover={finalRightHover}
+          path={ARROW_PATHS.rightArrow}
+          pos={rightArrowPos}
+          deg={arrowRotateDeg}
+          svgDeg={svgObj.deg[activeSection.name]}
+          innerPathHover={innerRightHover}
+          name={rightIcon.name}
+          arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
+        />
+
+        {/* <svg
+          width={200}
           x={leftArrowPos.x}
           y={leftArrowPos.y}
-          deg={arrowRotateDeg}
-          leftArrowClick={() =>
-            leftArrowClick(iconPair, setIconPair, numOfIcons)
-          }
-        />
-        <RightArrow
-          hover={finalRightHover}
-          x={rightArrowPos.x}
-          y={rightArrowPos.y}
-          deg={arrowRotateDeg}
-          rightArrowClick={() =>
-            rightArrowClick(iconPair, setIconPair, numOfIcons)
-          }
-        />
+          viewBox="-100 -100 900 500"
+        >
+          <circle cx={150} cy={150} r={190}></circle>
+          <text
+            x={150}
+            y={150}
+            fill="white"
+            fontSize={19}
+            textAnchor="middle"
+            dominantBaseline={"central"}
+          >
+            {name}
+          </text>
+        </svg> */}
       </g>
     </g>
   );

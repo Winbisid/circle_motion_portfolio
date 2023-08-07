@@ -1,8 +1,23 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Gradient from "./Gradient";
+import { IconsInterface, DegInterface } from "../../../interfaces";
 
-export default function Svg({ deg, sectionName, path, placeDir, hover }) {
+interface SvgProps {
+  deg: DegInterface;
+  sectionName: string;
+  path: IconsInterface;
+  placeDir?: "left" | "right";
+  hover?: boolean;
+}
+
+export default function Svg({
+  deg,
+  sectionName,
+  path,
+  placeDir,
+  hover,
+}: SvgProps) {
   const { width, x, y, d, viewBox, leftPos, rightPos, link, name } = path;
 
   const [fillColor, setFillColor] = useState("#00E8FF");
@@ -48,7 +63,6 @@ export default function Svg({ deg, sectionName, path, placeDir, hover }) {
   }, [hover]);
 
   return (
-    // <g>
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
@@ -65,8 +79,11 @@ export default function Svg({ deg, sectionName, path, placeDir, hover }) {
     >
       <Gradient />
       <motion.path
+        className={link && "linkedSvg"}
         fill={fillColor}
+        initial={{ opacity: 0 }}
         animate={{
+          opacity: 1,
           rotate: [null, deg[sectionName]],
           // x: placeDir === "right" ? [400, 0] : [-400, 0],
         }}
