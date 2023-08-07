@@ -1,6 +1,6 @@
 import React from "react";
 import reactLogo from "../../assets/react.svg";
-import viteLogo from "/vite.svg";
+import codeLogo from "/code-programing-symbol.svg";
 
 interface SwitchProps {
   isWheel: boolean;
@@ -28,7 +28,7 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
       onClick={switchItUp}
     >
       <img
-        src={isWheel ? reactLogo : viteLogo}
+        src={isWheel ? reactLogo : codeLogo}
         style={{}}
         alt={isWheel ? "wheel" : "typewriter"}
       />

@@ -2,5 +2,4 @@
 
 ## _Features & Issues_
 
-- [ ] fix rotation / implement better tooltips
-- [ ] Embed my sites into this portfolio so I don't have to totally redirect them from my site just to view one project
+- [ ] Embed projects sites into portfolio
