@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Arrow, Svg } from "../svg";
 import { leftArrowClick, rightArrowClick, ARROWPATHS } from "../../../utils";
-import { PathsInterface, SvgPathsInterface } from "../../../interfaces";
+import {
+  PathsInterface,
+  SvgPathsInterface,
+  IconsInterface,
+} from "../../../interfaces";
 
 interface WheelSectionProps {
   moveWheel: (wheelDeg: number, sectionName: string) => void;
@@ -60,8 +64,12 @@ export default function WheelSection({
 
   // find the pair of icons to fill the wheel
   useEffect(() => {
-    setLeftIcon(svgObj.icons.find((icon) => icon.id === iconPair.leftId));
-    setRightIcon(svgObj.icons.find((icon) => icon.id === iconPair.rightId));
+    setLeftIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.leftId)
+    );
+    setRightIcon(
+      svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.rightId)
+    );
   }, [iconPair]);
 
   return (
