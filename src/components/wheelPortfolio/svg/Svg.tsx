@@ -2,7 +2,41 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Gradient from "./Gradient";
 
-export default function Svg({ deg, sectionName, path, placeDir, hover }) {
+interface SvgProps {
+  deg: {
+    main: number;
+    expertise: number;
+    projects: number;
+    ongoing: number;
+    contact: number;
+  };
+  sectionName: string;
+  path: string;
+  placeDir: "left" | "right";
+  hover: boolean;
+}
+
+export default function Svg({
+  deg,
+  sectionName,
+  path,
+  placeDir,
+  hover,
+}: SvgProps) {
+  // interface PathProps {
+  //   width: number;
+  //   x: number;
+  //   y: number;
+  //   d: string;
+  //   viewBox: string;
+  //   leftPos: { x: number; y: number };
+  //   rightPos: { x: number; y: number };
+  //   link: string;
+  //   name: string;
+  // }
+
+  // const { width, x, y, d, viewBox, leftPos, rightPos, link, name }: PathProps =
+  //   path;
   const { width, x, y, d, viewBox, leftPos, rightPos, link, name } = path;
 
   const [fillColor, setFillColor] = useState("#00E8FF");
