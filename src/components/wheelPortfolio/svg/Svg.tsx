@@ -1,27 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Gradient from "./Gradient";
+import { IconsInterface, DegInterface } from "../../../interfaces";
 
 interface SvgProps {
-  deg: {
-    main: number;
-    expertise: number;
-    projects: number;
-    ongoing: number;
-    contact: number;
-  };
+  deg: DegInterface;
   sectionName: string;
-  path: {
-    width: number;
-    x?: number;
-    y?: number;
-    d: string;
-    viewBox: string;
-    leftPos?: { x: number; y: number };
-    rightPos?: { x: number; y: number };
-    link?: string;
-    name: string;
-  };
+  path: IconsInterface;
   placeDir?: "left" | "right";
   hover?: boolean;
 }

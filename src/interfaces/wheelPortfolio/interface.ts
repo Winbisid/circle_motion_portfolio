@@ -14,6 +14,7 @@ export interface PathsInterface {
   };
 }
 
+//?
 export interface SvgPathsInterface {
   sectionName: string;
   deg: DegInterface;
@@ -21,6 +22,7 @@ export interface SvgPathsInterface {
   icons: IconsInterface[];
 }
 
+//?
 export interface MainInterface {
   width: number;
   viewBox: string;
