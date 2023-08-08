@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Switch, Wheel, Text } from "./components";
+import { Switch, Footer, Wheel, Text } from "./components";
 import "./App.css";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Switch isWheel={isWheel} setWheelPortfolio={setIsWheel} />
       </div>
       {isWheel ? <Wheel /> : <Text />}
+      <Footer />
     </div>
   );
 }
