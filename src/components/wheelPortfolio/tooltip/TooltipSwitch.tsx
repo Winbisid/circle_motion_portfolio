@@ -12,7 +12,7 @@ export default function TooltipSwitch({
   tooltips,
   setTooltips,
 }: TooltipSwitchProps) {
-  const [visibility, setVisibility] = useState("hidden");
+  const [visibility, setVisibility] = useState<"visible" | "hidden">("hidden");
   return (
     <div>
       <motion.div
@@ -28,7 +28,7 @@ export default function TooltipSwitch({
           // visibility: "hidden",
           opacity: visibility === "hidden" ? 0.5 : 1,
         }}
-        whileHover={() => setVisibility("visible")}
+        onHoverStart={() => setVisibility("visible")}
         onHoverEnd={() => setVisibility("hidden")}
       >
         <img

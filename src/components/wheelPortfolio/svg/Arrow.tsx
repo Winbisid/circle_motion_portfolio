@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import Tooltip from "../tooltip/Tooltip";
 import TooltipsContext from "../../../utils/wheelPortfolio/tooltipsContext";
@@ -25,15 +25,10 @@ export default function Arrow({
   name,
   path,
 }: ArrowProps) {
-  const [alpha, setAlpha] = useState<0 | 1>(0);
   const tooltips = useContext(TooltipsContext);
 
   const { viewBox, d } = path;
   const { x, y } = pos;
-
-  useEffect(() => {
-    hover ? setAlpha(1) : setAlpha(0);
-  }, [hover]);
 
   return (
     <g>
@@ -48,12 +43,13 @@ export default function Arrow({
         width={15}
         x={x}
         y={y}
-        whileHover={() => setAlpha(1)}
-        onHoverEnd={() => setAlpha(0)}
+        initial={{ fillOpacity: 0 }}
+        whileHover={{ fillOpacity: 1 }}
+        animate={{ fillOpacity: hover ? 1 : 0 }}
         onClick={arrowClick}
       >
         <motion.path
-          fill={`rgba(0, 232, 255, ${alpha})`}
+          fill={"rgb(0,232,255)"}
           animate={{ rotate: [deg] }}
           d={d}
         />
