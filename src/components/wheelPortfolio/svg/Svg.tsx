@@ -75,6 +75,7 @@ export default function Svg({
       x={pos.x}
       y={pos.y}
       whileHover={onHoverSvg}
+      // onHoverStart={onHoverSvg}
       onHoverEnd={onHoverEndSvg}
     >
       <Gradient />
