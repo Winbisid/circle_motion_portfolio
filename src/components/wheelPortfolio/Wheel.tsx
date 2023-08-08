@@ -121,6 +121,37 @@ export default function Wheel() {
           </motion.svg>
         </svg>
       </motion.div>
+
+      <footer>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 10,
+            left: 25,
+            fontWeight: 600,
+            color: "var(--light-blue)",
+          }}
+        >
+          1.0.2
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 10,
+            right: 25,
+            fontWeight: 600,
+          }}
+        >
+          <a
+            href="https://textportfolio--winbisid.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={"testing deploy"}
+          >
+            Alpha 1.1.0
+          </a>
+        </div>
+      </footer>
     </TooltipsContext.Provider>
   );
 }
