@@ -146,6 +146,7 @@ export default function Wheel() {
             href="https://textportfolio--winbisid.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
+            title={"testing deploy"}
           >
             Alpha 1.1.0
           </a>
