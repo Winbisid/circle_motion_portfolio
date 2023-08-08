@@ -11,7 +11,7 @@ export default function Wheel() {
   const [wheelDeg, setWheelDeg] = useState(0);
   const [smallCircleVisible, setSmallCircleVisible] = useState("hidden");
   const [section, setSection] = useState("main");
-  const [alpha, setAlpha] = useState(0);
+  const [alpha, setAlpha] = useState<number>(0);
   const [textOpacity, setTextOpacity] = useState(0);
 
   const [tooltips, setTooltips] = useState(false);
@@ -51,13 +51,18 @@ export default function Wheel() {
   }
 
   return (
-    <TooltipsContext.Provider value={tooltips}>
+    <>
+      <TooltipsContext.Provider value={tooltips}>
+        <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
+      </TooltipsContext.Provider>
+
       <motion.div
-        initial={{ "--rotate": "0deg" }}
-        animate={{ "--rotate": `${wheelDeg}deg` }}
+        // initial={{ "--rotate": "0deg" }}
+        // animate={{ "--rotate": `${wheelDeg}deg` }}
+        initial={{ rotate: 0 }}
+        animate={{ rotate: wheelDeg }}
         transition={{ duration: 2 }}
       >
-        <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
         <svg
           id="wheel"
           className="cf"
@@ -90,7 +95,7 @@ export default function Wheel() {
               fill={`rgba(102, 51, 153, ${alpha})`}
               stroke="#00E8FF"
               variants={draw}
-              whileHover={() => setAlpha(0.1)}
+              onHoverStart={() => setAlpha(0.1)}
               onHoverEnd={() => setAlpha(0)}
             />
             <motion.text
@@ -119,6 +124,6 @@ export default function Wheel() {
           </motion.svg>
         </svg>
       </motion.div>
-    </TooltipsContext.Provider>
+    </>
   );
 }
