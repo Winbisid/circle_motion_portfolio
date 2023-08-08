@@ -24,12 +24,15 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        padding: 15,
       }}
       onClick={switchItUp}
     >
       <img
+        width={40}
+        height={40}
         src={isWheel ? reactLogo : codeLogo}
-        style={{}}
+        // style={{}}
         alt={isWheel ? "wheel" : "typewriter"}
       />
     </div>
