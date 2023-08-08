@@ -32,7 +32,6 @@ export default function WheelSection({
     { leftId: 1, rightId: 2 }
   );
 
-
   const emptyIconPlaceholder = {
     width: 0,
     d: "",
@@ -45,7 +44,6 @@ export default function WheelSection({
     useState<IconsInterface>(emptyIconPlaceholder);
   const [rightIcon, setRightIcon] =
     useState<IconsInterface>(emptyIconPlaceholder);
-
 
   // total number of icons
   let numOfIcons: number;
@@ -76,7 +74,6 @@ export default function WheelSection({
     );
     setRightIcon(
       svgObj.icons.find((icon: IconsInterface) => icon.id === iconPair.rightId)!
-
     );
   }, [iconPair]);
 
@@ -90,14 +87,14 @@ export default function WheelSection({
           <a href={leftIcon.link} target="_blank" rel="noopener noreferrer">
             <motion.path
               d={innerLeft}
-              whileHover={() => setInnerLeftHover(true)}
+              onHoverStart={() => setInnerLeftHover(true)}
               onHoverEnd={() => setInnerLeftHover(false)}
             />
           </a>
         ) : (
           <motion.path
             d={innerLeft}
-            whileHover={() => setInnerLeftHover(true)}
+            onHoverStart={() => setInnerLeftHover(true)}
             onHoverEnd={() => setInnerLeftHover(false)}
           />
         )}
@@ -105,14 +102,14 @@ export default function WheelSection({
           <a href={rightIcon.link} target="_blank" rel="noopener noreferrer">
             <motion.path
               d={innerRight}
-              whileHover={() => setInnerRightHover(true)}
+              onHoverStart={() => setInnerRightHover(true)}
               onHoverEnd={() => setInnerRightHover(false)}
             />
           </a>
         ) : (
           <motion.path
             d={innerRight}
-            whileHover={() => setInnerRightHover(true)}
+            onHoverStart={() => setInnerRightHover(true)}
             onHoverEnd={() => setInnerRightHover(false)}
           />
         )}
@@ -121,14 +118,14 @@ export default function WheelSection({
         {/* <g> */}
         <motion.path
           d={finalLeft}
-          whileHover={() => setFinalLeftHover(true)}
+          onHoverStart={() => setFinalLeftHover(true)}
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
         {/* </g> */}
 
         <motion.path
-          whileHover={() => setFinalRightHover(true)}
+          onHoverStart={() => setFinalRightHover(true)}
           onHoverEnd={() => setFinalRightHover(false)}
           d={finalRight}
           onClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
@@ -195,7 +192,6 @@ export default function WheelSection({
           svgDeg={svgObj.deg[activeSection as keyof DegInterface]}
           innerPathHover={innerLeftHover}
           name={leftIcon.name || "left arrow"}
-
           arrowClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
 
@@ -207,7 +203,6 @@ export default function WheelSection({
           svgDeg={svgObj.deg[activeSection as keyof DegInterface]}
           innerPathHover={innerRightHover}
           name={rightIcon.name || "right arrow"}
-
           arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
         />
 
