@@ -84,7 +84,7 @@ export default function Svg({
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          rotate: [null, deg[sectionName]],
+          rotate: [null, deg[sectionName as keyof DegInterface]],
           // x: placeDir === "right" ? [400, 0] : [-400, 0],
         }}
         transition={{ duration: 2.5 }}

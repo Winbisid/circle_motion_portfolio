@@ -7,7 +7,8 @@ interface ArrowProps {
   hover: boolean;
   pos: { x: number; y: number };
   deg: number;
-  arrowClick: Function;
+  arrowClick: () => void;
+
   svgDeg: number;
   innerPathHover: boolean;
   name: string;
@@ -24,7 +25,7 @@ export default function Arrow({
   name,
   path,
 }: ArrowProps) {
-  const [alpha, setAlpha] = useState(0);
+  const [alpha, setAlpha] = useState<0 | 1>(0);
   const tooltips = useContext(TooltipsContext);
 
   const { viewBox, d } = path;

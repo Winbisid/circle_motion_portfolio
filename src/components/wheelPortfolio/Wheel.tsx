@@ -19,7 +19,7 @@ export default function Wheel() {
   // degree to rotate centered text
   const textDeg: number = -PATHS.find(
     (item: PathsInterface) => item.sectionName === section
-  )?.wheelDeg;
+  )?.wheelDeg!;
 
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
@@ -69,7 +69,7 @@ export default function Wheel() {
               key={path.sectionName}
               moveWheel={clickTopic}
               pathsDef={path}
-              svgObj={SVG_PATHS[path.sectionName]}
+              svgObj={SVG_PATHS[path.sectionName as keyof typeof SVG_PATHS]}
               activeSection={section}
             />
           ))}
