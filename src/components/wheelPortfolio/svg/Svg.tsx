@@ -20,8 +20,6 @@ export default function Svg({
 }: SvgProps) {
   const { width, x, y, d, viewBox, leftPos, rightPos, link, name } = path;
 
-  const [fillColor, setFillColor] = useState("#00E8FF");
-
   // set pos to x and y for the main icons
   const [pos, setPos] = useState({
     x: x,
@@ -45,22 +43,9 @@ export default function Svg({
     }
   }, [placeDir]);
 
-  useEffect(() => {
-    hover && link ? setFillColor("url(#lin)") : setFillColor("#00E8FF");
-  }, [hover]);
-
-  // if a link is present and hovering, change the color
-  function onHoverSvg() {
-    link ? setFillColor("url(#lin)") : setFillColor("url(#rad)");
-  }
-
-  function onHoverEndSvg() {
-    setFillColor("#00E8FF");
-  }
-
-  useEffect(() => {
-    hover && console.log(name);
-  }, [hover]);
+  // useEffect(() => {
+  //   hover && console.log(name);
+  // }, [hover]);
 
   return (
     <motion.svg
@@ -74,19 +59,18 @@ export default function Svg({
       width={width}
       x={pos.x}
       y={pos.y}
-      whileHover={onHoverSvg}
-      onHoverEnd={onHoverEndSvg}
     >
       <Gradient />
       <motion.path
         className={link && "linkedSvg"}
-        fill={fillColor}
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, fill: "#00E8FF" }}
         animate={{
+          fill: hover && link ? "url(#lin)" : "#00E8FF",
           opacity: 1,
-          rotate: [null, deg[sectionName]],
+          rotate: [null, deg[sectionName as keyof DegInterface]],
           // x: placeDir === "right" ? [400, 0] : [-400, 0],
         }}
+        whileHover={{ fill: link ? "url(#lin)" : "url(#rad)" }}
         transition={{ duration: 2.5 }}
         d={d}
         // id={`${path.name}-${path?.id}`}
