@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import reactLogo from "../../assets/react.svg";
 import codeLogo from "/code-programing-symbol.svg";
 
@@ -15,7 +16,7 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
   }
 
   return (
-    <div
+    <motion.div
       style={{
         backgroundColor: "indigo",
         width: "100%",
@@ -26,6 +27,8 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
         justifyContent: "center",
         padding: 15,
       }}
+      initial={{ opacity: 0.5 }}
+      whileHover={{ opacity: 1 }}
       onClick={switchItUp}
     >
       <img
@@ -35,6 +38,6 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
         // style={{}}
         alt={isWheel ? "wheel" : "typewriter"}
       />
-    </div>
+    </motion.div>
   );
 }
