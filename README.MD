@@ -2,6 +2,7 @@
 
 ## _Features & Issues_
 
+- [ ] move tooltips text to the far left
 - [ ] fix all bugs and deploy (remove env var CI=False & change netlify build to not CI) then move to textPortfolio
 - [ ] add & link remaining tech/frameworks and projects
 - [ ] fix rotation / implement better tooltips
