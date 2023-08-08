@@ -25,7 +25,7 @@ export default function TooltipSwitch({
           // backgroundColor: "indigo",
           borderRadius: "50%",
           margin: 20,
-          // visibility: "hidden",
+          visibility: "hidden",
           opacity: visibility === "hidden" ? 0.5 : 1,
         }}
         onHoverStart={() => setVisibility("visible")}
@@ -43,7 +43,12 @@ export default function TooltipSwitch({
       </motion.div>
       <motion.div
         initial={{ visibility: "hidden" }}
-        animate={{ visibility: visibility }}
+        animate={{
+          visibility: visibility,
+          position: "absolute",
+          left: 25,
+          top: 150,
+        }}
         style={{ color: "hsl(270,50%,50%)", fontSize: 25, fontWeight: 600 }}
       >
         tooltips {tooltips ? "on" : "off"}
