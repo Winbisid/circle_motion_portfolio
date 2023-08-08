@@ -51,11 +51,8 @@ export default function Wheel() {
   }
 
   return (
-    <>
-      <TooltipsContext.Provider value={tooltips}>
-        <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
-      </TooltipsContext.Provider>
-
+    <TooltipsContext.Provider value={tooltips}>
+      <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
       <motion.div
         // initial={{ "--rotate": "0deg" }}
         // animate={{ "--rotate": `${wheelDeg}deg` }}
@@ -124,6 +121,6 @@ export default function Wheel() {
           </motion.svg>
         </svg>
       </motion.div>
-    </>
+    </TooltipsContext.Provider>
   );
 }
