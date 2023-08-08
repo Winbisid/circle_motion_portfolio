@@ -8,6 +8,7 @@ interface ArrowProps {
   pos: { x: number; y: number };
   deg: number;
   arrowClick: () => void;
+
   svgDeg: number;
   innerPathHover: boolean;
   name: string;
