@@ -9,7 +9,49 @@ function App() {
       <div style={{ position: "absolute", top: 25, right: 25 }}>
         <Switch isWheel={isWheel} setWheelPortfolio={setIsWheel} />
       </div>
-      {isWheel ? <Wheel /> : <Text />}
+      {isWheel ? (
+        <div style={{ overflow: "hidden" }}>
+          <Wheel />
+        </div>
+      ) : (
+        <div
+          style={
+            {
+              // display: "flex",
+              // flexDirection: "column",
+              // alignItems: "center",
+              // justifyContent: "center",
+              // height: "100vh",
+              // width: "95vw",
+            }
+          }
+        >
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+          <Text />
+        </div>
+      )}
       <Footer />
     </div>
   );

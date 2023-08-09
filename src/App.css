@@ -4,12 +4,6 @@
   /* overflow: hidden; */
 }
 
-body {
-  place-content: center;
-  /* background: radial-gradient(hsl(240, 24%, 8%), hsl(var(--h) var(--s) 5%)); */
-  background-color: rgb(10, 10, 20);
-}
-
 /* .app {
   display: flex;
   flex-direction: column;
