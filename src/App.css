@@ -6,14 +6,14 @@
 
 body {
   place-content: center;
-  background: radial-gradient(hsl(240, 24%, 8%), hsl(var(--h) var(--s) 5%));
-  /* background: radial-gradient(hsl(var(--h) var(--s) 5%), hsl(240, 24%, 8%)); */
+  /* background: radial-gradient(hsl(240, 24%, 8%), hsl(var(--h) var(--s) 5%)); */
+  background-color: rgb(10, 10, 20);
 }
 
-.app {
+/* .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} */
