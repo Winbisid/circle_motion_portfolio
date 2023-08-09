@@ -1,7 +1,21 @@
-* {
-  box-sizing: border-box;
-  /* cursor: none; */
-  /* overflow: hidden; */
+@font-face {
+  font-family: "SplineSansMono";
+  src: url(../src/assets/fonts/SplineSansMono-VariableFont_wght.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Limelight";
+  src: url(../src/assets/fonts/Limelight-Regular.ttf) format("truetype");
+}
+
+body {
+  --light-purple: #cf59e6;
+  --light-blue: #6bc5f8;
+  --dark-blue: #0e79b2;
+  --light-gold: #f39237;
+  --dark-gold: #d16b0d;
+  font-family: "SplineSansMono", monospace;
 }
 
 .app {

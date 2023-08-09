@@ -19,7 +19,6 @@ export default function Footer({ isWheel }: FooterProps) {
         display: "flex",
         justifyContent: "space-between",
         color: "var(--light-blue)",
-        // alignItems: "flex-end",
       }}
     >
       <div style={isWheel ? { ...style, left: 25 } : style}>Alpha 1.1.0</div>

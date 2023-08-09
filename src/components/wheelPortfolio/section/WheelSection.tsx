@@ -115,14 +115,12 @@ export default function WheelSection({
         )}
 
         {/* paths for the arrow containers */}
-        {/* <g> */}
         <motion.path
           d={finalLeft}
           onHoverStart={() => setFinalLeftHover(true)}
           onHoverEnd={() => setFinalLeftHover(false)}
           onClick={() => leftArrowClick(iconPair, setIconPair, numOfIcons)}
         />
-        {/* </g> */}
 
         <motion.path
           onHoverStart={() => setFinalRightHover(true)}
@@ -205,25 +203,6 @@ export default function WheelSection({
           name={rightIcon.name || "right arrow"}
           arrowClick={() => rightArrowClick(iconPair, setIconPair, numOfIcons)}
         />
-
-        {/* <svg
-          width={200}
-          x={leftArrowPos.x}
-          y={leftArrowPos.y}
-          viewBox="-100 -100 900 500"
-        >
-          <circle cx={150} cy={150} r={190}></circle>
-          <text
-            x={150}
-            y={150}
-            fill="white"
-            fontSize={19}
-            textAnchor="middle"
-            dominantBaseline={"central"}
-          >
-            {name}
-          </text>
-        </svg> */}
       </g>
     </g>
   );

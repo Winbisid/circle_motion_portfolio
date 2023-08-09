@@ -19,8 +19,6 @@ export default function Switch({ isWheel, setWheelPortfolio }: SwitchProps) {
     <motion.div
       style={{
         backgroundColor: "indigo",
-        // width: "100%",
-        // height: "100%",
         borderRadius: "50%",
         display: "flex",
         alignItems: "center",

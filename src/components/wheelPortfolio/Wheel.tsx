@@ -55,8 +55,6 @@ export default function Wheel() {
       <TooltipsContext.Provider value={tooltips}>
         <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
         <motion.div
-          // initial={{ "--rotate": "0deg" }}
-          // animate={{ "--rotate": `${wheelDeg}deg` }}
           initial={{ rotate: 0 }}
           animate={{ rotate: wheelDeg }}
           transition={{ duration: 2 }}
@@ -100,6 +98,7 @@ export default function Wheel() {
                 y={150}
                 fill={"url(#rad)"}
                 fontWeight={600}
+                fontSize={14}
                 initial={{ opacity: 0 }}
                 animate={{
                   rotate: [null, textDeg || 0],
@@ -107,7 +106,6 @@ export default function Wheel() {
                 }}
                 transition={{
                   type: "spring",
-                  // duration: 1.5,
                   damping: 3,
                   stiffness: 50,
                   restSpeed: 0.6,

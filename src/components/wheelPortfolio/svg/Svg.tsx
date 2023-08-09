@@ -18,7 +18,7 @@ export default function Svg({
   placeDir,
   hover,
 }: SvgProps) {
-  const { width, x, y, d, viewBox, leftPos, rightPos, link, name } = path;
+  const { width, x, y, d, viewBox, leftPos, rightPos, link } = path;
 
   // set pos to x and y for the main icons
   const [pos, setPos] = useState({
@@ -43,10 +43,6 @@ export default function Svg({
     }
   }, [placeDir]);
 
-  // useEffect(() => {
-  //   hover && console.log(name);
-  // }, [hover]);
-
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -68,12 +64,10 @@ export default function Svg({
           fill: hover && link ? "url(#lin)" : "#00E8FF",
           opacity: 1,
           rotate: [null, deg[sectionName as keyof DegInterface]],
-          // x: placeDir === "right" ? [400, 0] : [-400, 0],
         }}
         whileHover={{ fill: link ? "url(#lin)" : "url(#rad)" }}
         transition={{ duration: 2.5 }}
         d={d}
-        // id={`${path.name}-${path?.id}`}
       />
     </motion.svg>
   );
