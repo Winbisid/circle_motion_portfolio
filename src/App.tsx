@@ -10,9 +10,7 @@ function App() {
         <Switch isWheel={isWheel} setWheelPortfolio={setIsWheel} />
       </div>
       {isWheel ? (
-        <div style={{ overflow: "hidden" }}>
-          <Wheel />
-        </div>
+        <Wheel />
       ) : (
         <div
           style={

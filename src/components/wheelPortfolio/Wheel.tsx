@@ -51,76 +51,78 @@ export default function Wheel() {
   }
 
   return (
-    <TooltipsContext.Provider value={tooltips}>
-      <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
-      <motion.div
-        // initial={{ "--rotate": "0deg" }}
-        // animate={{ "--rotate": `${wheelDeg}deg` }}
-        initial={{ rotate: 0 }}
-        animate={{ rotate: wheelDeg }}
-        transition={{ duration: 2 }}
-      >
-        <svg
-          id="wheel"
-          className="cf"
-          viewBox="0 0 300 300"
-          style={{ transform: "rotate(var(--rotate))" }}
+    <div style={{ overflow: "hidden" }}>
+      <TooltipsContext.Provider value={tooltips}>
+        <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
+        <motion.div
+          // initial={{ "--rotate": "0deg" }}
+          // animate={{ "--rotate": `${wheelDeg}deg` }}
+          initial={{ rotate: 0 }}
+          animate={{ rotate: wheelDeg }}
+          transition={{ duration: 2 }}
         >
-          {PATHS.map((path: PathsInterface) => (
-            <WheelSection
-              key={path.sectionName}
-              moveWheel={clickTopic}
-              pathsDef={path}
-              svgObj={SVG_PATHS[path.sectionName as keyof typeof SVG_PATHS]}
-              activeSection={section}
-            />
-          ))}
-
-          <motion.svg
-            width="200"
-            height="200"
-            viewBox="0 0 200 200"
-            visibility={"visible"}
-            initial="hidden"
-            animate={`${smallCircleVisible}`}
-            onClick={() => clickTopic(0, "main")}
+          <svg
+            id="wheel"
+            className="cf"
+            viewBox="0 0 300 300"
+            style={{ transform: "rotate(var(--rotate))" }}
           >
-            <motion.circle
-              cx="150"
-              cy="150"
-              r="40"
-              fill={`rgba(102, 51, 153, ${alpha})`}
-              stroke="#00E8FF"
-              variants={draw}
-              onHoverStart={() => setAlpha(0.1)}
-              onHoverEnd={() => setAlpha(0)}
-            />
-            <motion.text
-              x={150}
-              y={150}
-              fill={"url(#rad)"}
-              fontWeight={600}
-              initial={{ opacity: 0 }}
-              animate={{
-                rotate: [null, textDeg || 0],
-                opacity: textOpacity,
-              }}
-              transition={{
-                type: "spring",
-                // duration: 1.5,
-                damping: 3,
-                stiffness: 50,
-                restSpeed: 0.6,
-                restDelta: 0.5,
-              }}
-              textAnchor={"middle"}
-              dominantBaseline={"central"}
+            {PATHS.map((path: PathsInterface) => (
+              <WheelSection
+                key={path.sectionName}
+                moveWheel={clickTopic}
+                pathsDef={path}
+                svgObj={SVG_PATHS[path.sectionName as keyof typeof SVG_PATHS]}
+                activeSection={section}
+              />
+            ))}
+
+            <motion.svg
+              width="200"
+              height="200"
+              viewBox="0 0 200 200"
+              visibility={"visible"}
+              initial="hidden"
+              animate={`${smallCircleVisible}`}
+              onClick={() => clickTopic(0, "main")}
             >
-              {section}
-            </motion.text>
-          </motion.svg>
-        </svg>
-      </motion.div>
-    </TooltipsContext.Provider>
+              <motion.circle
+                cx="150"
+                cy="150"
+                r="40"
+                fill={`rgba(102, 51, 153, ${alpha})`}
+                stroke="#00E8FF"
+                variants={draw}
+                onHoverStart={() => setAlpha(0.1)}
+                onHoverEnd={() => setAlpha(0)}
+              />
+              <motion.text
+                x={150}
+                y={150}
+                fill={"url(#rad)"}
+                fontWeight={600}
+                initial={{ opacity: 0 }}
+                animate={{
+                  rotate: [null, textDeg || 0],
+                  opacity: textOpacity,
+                }}
+                transition={{
+                  type: "spring",
+                  // duration: 1.5,
+                  damping: 3,
+                  stiffness: 50,
+                  restSpeed: 0.6,
+                  restDelta: 0.5,
+                }}
+                textAnchor={"middle"}
+                dominantBaseline={"central"}
+              >
+                {section}
+              </motion.text>
+            </motion.svg>
+          </svg>
+        </motion.div>
+      </TooltipsContext.Provider>
+    </div>
   );
 }
