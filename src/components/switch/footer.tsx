@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           bottom: 10,
           left: 25,
           fontWeight: 600,
@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           bottom: 10,
           right: 25,
           fontWeight: 600,

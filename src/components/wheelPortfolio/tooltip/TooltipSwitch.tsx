@@ -27,6 +27,7 @@ export default function TooltipSwitch({
           margin: 20,
           //   visibility: "hidden",
           opacity: visibility === "hidden" ? 0.5 : 1,
+          zIndex: 99,
         }}
         onHoverStart={() => setVisibility("visible")}
         onHoverEnd={() => setVisibility("hidden")}

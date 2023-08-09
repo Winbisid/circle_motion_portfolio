@@ -16,10 +16,10 @@ body {
 /* Circle */
 .cf {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: center; */
+  height: 90vh;
   width: 95vw;
 }
 .cf-arcs {
@@ -35,9 +35,6 @@ body {
 }
 .cf use {
   pointer-events: none;
-}
-.cf [baseline-shift="super"] {
-  font-size: 80%;
 }
 
 @media (min-width: 700px) {
