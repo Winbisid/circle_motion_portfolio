@@ -14,7 +14,7 @@ export default function TooltipSwitch({
 }: TooltipSwitchProps) {
   const [visibility, setVisibility] = useState<"visible" | "hidden">("hidden");
   return (
-    <div>
+    <motion.div initial={{ opacity: 0.5 }} whileHover={{ opacity: 1 }}>
       <motion.div
         onClick={() => setTooltips((prev: boolean) => !prev)}
         style={{
@@ -25,8 +25,7 @@ export default function TooltipSwitch({
           // backgroundColor: "indigo",
           borderRadius: "50%",
           margin: 20,
-          //   visibility: "hidden",
-          opacity: visibility === "hidden" ? 0.5 : 1,
+          // visibility: "hidden",
           zIndex: 99,
         }}
         onHoverStart={() => setVisibility("visible")}
@@ -34,7 +33,7 @@ export default function TooltipSwitch({
       >
         <img
           src={tooltips ? solidTooltip : lineTooltip}
-          width={80}
+          width={70}
           style={{
             display: "flex",
             padding: 15,
@@ -43,7 +42,6 @@ export default function TooltipSwitch({
         />
       </motion.div>
       <motion.div
-        initial={{ visibility: "hidden" }}
         animate={{
           visibility: visibility,
           position: "absolute",
@@ -54,6 +52,6 @@ export default function TooltipSwitch({
       >
         tooltips {tooltips ? "on" : "off"}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
