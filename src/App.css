@@ -4,6 +4,12 @@
   /* overflow: hidden; */
 }
 
+body {
+  place-content: center;
+  background: radial-gradient(hsl(240, 24%, 8%), hsl(var(--h) var(--s) 5%));
+  /* background: radial-gradient(hsl(var(--h) var(--s) 5%), hsl(240, 24%, 8%)); */
+}
+
 .app {
   display: flex;
   flex-direction: column;

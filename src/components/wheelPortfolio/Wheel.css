@@ -10,10 +10,7 @@ body {
   --dark: hsl(var(--h) var(--s) 10%);
   --dark-hover: hsl(var(--h) var(--s) 25%);
   --light: hsl(var(--h) var(--s) 99%);
-
   --gap: 1.5rem;
-  background: radial-gradient(var(--dark-hover), var(--dark));
-  place-content: center;
 }
 
 /* Circle */
