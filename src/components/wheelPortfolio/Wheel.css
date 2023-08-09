@@ -13,9 +13,15 @@ body {
   --gap: 1.5rem;
 }
 
+#wheel {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
 /* Circle */
 .cf {
-  display: flex;
+  /* display: flex; */
   /* flex-direction: column;
   align-items: center;
   justify-content: center; */

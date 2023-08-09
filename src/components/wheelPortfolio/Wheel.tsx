@@ -51,7 +51,7 @@ export default function Wheel() {
   }
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div id="wheel">
       <TooltipsContext.Provider value={tooltips}>
         <TooltipSwitch tooltips={tooltips} setTooltips={setTooltips} />
         <motion.div
@@ -62,7 +62,6 @@ export default function Wheel() {
           transition={{ duration: 2 }}
         >
           <svg
-            id="wheel"
             className="cf"
             viewBox="0 0 300 300"
             style={{ transform: "rotate(var(--rotate))" }}

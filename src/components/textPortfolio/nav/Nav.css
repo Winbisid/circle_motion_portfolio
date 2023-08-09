@@ -1,10 +1,7 @@
-body {
-  --light-purple: #cf59e6;
-  --light-blue: #6bc5f8;
-}
-
 #top-menu {
-  font-family: "Bebas Neue", cursive;
+  display: flex;
+  font-weight: 600;
+  justify-content: center;
 }
 
 #top-menu ul {
@@ -29,7 +26,7 @@ body {
 }
 
 #top-menu a {
-  color: #6bc5f8;
+  color: var(--dark-blue);
 }
 
 #top-menu a:hover {
@@ -64,11 +61,19 @@ body {
   /* Adjust the navbar styles for mobile screens */
   /* } */
 
-  .navigation li {
+  /* .navigation li {
     max-width: 40px;
+  } */
+  #top-menu ul {
+    padding: 10px;
+  }
+
+  #top-menu li {
+    /* max-width: 40px; */
   }
 
   #top-menu ul li {
     font-size: 15px;
+    padding: 0 1px;
   }
 }
