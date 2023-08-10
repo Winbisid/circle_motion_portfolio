@@ -1,4 +1,4 @@
-import { easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import "./Home.css";
 
 export default function Home() {
