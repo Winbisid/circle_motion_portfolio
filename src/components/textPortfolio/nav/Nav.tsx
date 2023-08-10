@@ -1,4 +1,5 @@
 import "./Nav.css";
+import reactLogo from "../../../assets/react.svg";
 
 export default function Nav() {
   const options = ["Home", "Expertise", "Projects", "Doing|Now", "Contact"];
@@ -14,6 +15,17 @@ export default function Nav() {
           />
         ))}
       </ul>
+      {/* <ul
+        id="nav-switch"
+        style={{
+          display: "none",
+          alignItems: "center",
+          padding: "15px",
+          // visibility: "hidden",
+        }}
+      >
+        <img src={reactLogo} width={"20"} />
+      </ul> */}
     </nav>
   );
 }

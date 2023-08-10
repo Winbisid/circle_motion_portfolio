@@ -1,0 +1,37 @@
+.home {
+  color: var(--light-gold);
+  /* display: flex;
+  flex-direction: column; */
+  /* height: 100vh; */
+}
+
+#image {
+  /* display: flex; */
+  /* border: 1px solid coral; */
+}
+
+#image img {
+  width: 80px;
+  border: 1px solid coral;
+  border-radius: 50%;
+}
+
+#name {
+  font-size: var(--large-header);
+}
+
+#intro {
+  max-width: 500px;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  #name {
+    font-size: var(--medium-header);
+  }
+}
+
+@media (max-width: 768px) {
+  #name {
+    font-size: var(--small-header);
+  }
+}

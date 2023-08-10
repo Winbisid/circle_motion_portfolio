@@ -12,29 +12,6 @@ function App() {
       ) : (
         <>
           <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
-          <Text />
         </>
       )}
       <Footer isWheel={isWheel} />

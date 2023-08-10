@@ -21,7 +21,7 @@ export default function Footer({ isWheel }: FooterProps) {
         color: "var(--light-blue)",
       }}
     >
-      <div style={isWheel ? { ...style, left: 25 } : style}>Alpha 1.1.0</div>
+      <div style={isWheel ? { ...style, left: 25 } : style}>Alpha 1.1.1</div>
       <div style={isWheel ? { ...style, right: 25 } : style}>
         <a
           href="https://winbisid.netlify.app"

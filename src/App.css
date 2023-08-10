@@ -15,7 +15,14 @@ body {
   --dark-blue: #0e79b2;
   --light-gold: #f39237;
   --dark-gold: #d16b0d;
+  --large-header: 80px;
+  --medium-header: 64px;
+  --small-header: 32px;
   font-family: "SplineSansMono", monospace;
+}
+
+h1 {
+  font-family: "Limelight", cursive;
 }
 
 .app {
