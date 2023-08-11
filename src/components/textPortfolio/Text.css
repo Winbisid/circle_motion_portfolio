@@ -1,3 +1,11 @@
 #text-main-wrapper {
+  /* margin: 0 50px; */
+}
+
+#text-main-wrapper > div {
+  height: 100vh;
+}
+
+.margin-wrapper {
   margin: 0 50px;
 }
