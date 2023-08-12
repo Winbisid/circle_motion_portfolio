@@ -1,8 +1,10 @@
 #hero-bg {
   /* background-color: var(--light-gold); */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../../assets/dgold.svg"); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("../../../assets/abstract_liquid_marble.jpeg");
+  /* url("../../../assets/dgold.svg"); */
   background-image: url("../../../assets/dgold.svg");
+  /* background-image: url("../../../assets/transparentgold.svg"); */
 
   display: flex;
   justify-content: center;
