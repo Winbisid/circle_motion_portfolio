@@ -1,8 +1,8 @@
-#text-main-wrapper {
+.text-main-wrapper {
   /* margin: 0 50px; */
 }
 
-#text-main-wrapper > div {
+.text-main-wrapper > div {
   height: 100vh;
 }
 

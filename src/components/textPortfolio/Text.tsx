@@ -7,7 +7,7 @@ export default function Text() {
   return (
     <>
       <Nav />
-      <div id="text-main-wrapper">
+      <div className="text-main-wrapper">
         <Home />
         <HeroBg />
       </div>
