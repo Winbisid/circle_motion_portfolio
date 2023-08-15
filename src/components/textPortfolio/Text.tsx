@@ -2,6 +2,7 @@ import Nav from "./nav/Nav";
 import Home from "./home/Home";
 import HeroBg from "./heroBg/HeroBg";
 import "./Text.css";
+import Expertise from "./expertise/Expertise";
 
 export default function Text() {
   return (
@@ -10,6 +11,7 @@ export default function Text() {
       <div className="text-main-wrapper">
         <Home />
         <HeroBg />
+        <Expertise />
       </div>
     </>
   );

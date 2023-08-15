@@ -1,0 +1,137 @@
+.expertise {
+  background-color: #050810;
+  /* background-color: var(--dark-gold); */
+}
+
+/* .heading {
+  display: flex;
+  align-items: center;
+  font-size: 5rem;
+  letter-spacing: -0.03em;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .heading {
+    font-size: 4.25rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .heading {
+    font-size: 3.5rem;
+  }
+} */
+
+.paragraph {
+  font-size: 1.7rem;
+  line-height: 130.4%;
+  color: #8b8b8b;
+}
+
+.icons-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.icons-section__bottom {
+  overflow-x: hidden;
+  /* margin-top: 8rem; */
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.icons-section__bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+}
+.icons-section__bottom-wrapper .icons-container {
+  background: #171e2f;
+  border-radius: 2rem;
+  padding: 3rem;
+  margin: 1.5rem;
+}
+
+.icons-section__bottom-wrapper .icons-container__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.icons-container__anim1 {
+  animation: iconsContainerAnim1 35s ease-in-out infinite alternate;
+}
+
+.icons-container__anim1:hover {
+  animation-play-state: paused;
+}
+
+.icons-container__anim2 {
+  animation: iconsContainerAnim2 35s ease-in-out infinite alternate;
+}
+
+.icons-container__anim2:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .paragraph {
+    font-size: 1.2rem;
+  }
+
+  .icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 150px;
+    width: 150px; */
+  }
+
+  .icon {
+    width: 96px;
+  }
+
+  .icons-section__bottom {
+    /* margin-top: 2rem; */
+  }
+}
+/* 
+// goes from 1 - 11
+@keyframes iconsContainerAnim1 {
+  from {
+    transform: translateX(-52%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes iconsContainerAnim2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-52%);
+  }
+} */
+
+@keyframes iconsContainerAnim1 {
+  from {
+    transform: translateX(-86%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes iconsContainerAnim2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-86%);
+  }
+}
