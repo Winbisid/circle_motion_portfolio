@@ -3,6 +3,7 @@ import Home from "./home/Home";
 import HeroBg from "./heroBg/HeroBg";
 import "./Text.css";
 import Expertise from "./expertise/Expertise";
+import Projects from "./projects/Projects";
 
 export default function Text() {
   return (
@@ -12,6 +13,7 @@ export default function Text() {
         <Home />
         <HeroBg />
         <Expertise />
+        <Projects />
       </div>
     </>
   );

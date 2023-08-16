@@ -20,6 +20,7 @@
   /* margin: 0 20px;
   padding: 0 10px; */
   max-width: 1000px;
+  /* max-height: 100vh; */
 }
 
 @media (min-width: 768px) {
