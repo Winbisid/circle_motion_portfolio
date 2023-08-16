@@ -1,8 +1,10 @@
+import "./Projects.css";
+
 export default function Projects() {
   return (
     <div className="projects">
       <div className="margin-wrapper">
-        <h1 className="heading">Projects</h1>
+        <h1 className="heading">PROJECTS</h1>
         {/* <p className="string-text">
           They say even the trickiest bugs tremble under the fingertips of this
           developer. Armed with a serious dose of wit and puzzling prowess, this

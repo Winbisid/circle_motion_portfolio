@@ -1,0 +1,38 @@
+.projects {
+  background-color: var(--dark-pink);
+  color: #010101;
+}
+
+.heading {
+  display: flex;
+  /* align-items: center; */
+  font-size: 5rem;
+  letter-spacing: -0.03em;
+  margin: 0px;
+  /* padding: 25px 0; */
+}
+
+@media only screen and (max-width: 56.25em) {
+  .heading {
+    font-size: 4.25rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}
+
+.string-text {
+  font-size: 1.8rem;
+  line-height: 130.4%;
+  /* color: #8b8b8b;
+  color: var(--light-pink);
+  color: #010101; */
+}
+
+@media (max-width: 768px) {
+  .string-text {
+    font-size: 1.2rem;
+  }
+}
