@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Projects.css";
 
@@ -8,6 +9,8 @@ interface ProjectInterface {
 }
 
 export default function Projects() {
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+
   // data
   const featuredProjects: ProjectInterface[] = [
     {
