@@ -1,6 +1,22 @@
+import { AnimatePresence, motion } from "framer-motion";
 import "./Projects.css";
 
+interface ProjectInterface {
+  id: number;
+  name: string;
+  image: string;
+}
+
 export default function Projects() {
+  // data
+  const featuredProjects: ProjectInterface[] = [
+    {
+      id: 1,
+      name: "",
+      image: "",
+    },
+  ];
+
   return (
     <div className="projects">
       <div className="margin-wrapper">
@@ -16,6 +32,12 @@ export default function Projects() {
           conundrums to architecting digital marvels, unravel the mysteries
           behind these awe-inducing creations.
         </p>
+      </div>
+
+      <div className="projects-container">
+        {featuredProjects.map(({ id, name, image }) => (
+          <motion.div layoutId={id}></motion.div>
+        ))}
       </div>
     </div>
   );
