@@ -15,8 +15,24 @@ export default function Projects() {
   const featuredProjects: ProjectInterface[] = [
     {
       id: 1,
-      name: "",
-      image: "",
+      name: "Blerry",
+      //   image: "/code-programing-symbol.svg",
+      image: "../../../assets/abstract_liquid_marble.jpeg",
+    },
+    {
+      id: 2,
+      name: "FroGo",
+      image: "code-programing-symbol.svg",
+    },
+    {
+      id: 3,
+      name: "UpMet",
+      image: "code-programing-symbol.svg",
+    },
+    {
+      id: 4,
+      name: "ShortPort",
+      image: "code-programing-symbol.svg",
     },
   ];
 
@@ -39,7 +55,14 @@ export default function Projects() {
 
       <div className="projects-container">
         {featuredProjects.map(({ id, name, image }) => (
-          <motion.div layoutId={id}></motion.div>
+          <motion.div
+            layoutId={id}
+            onClick={() => setSelectedId(id)}
+            // style={{ display: "flex", flexDirection: "column" }}
+          >
+            <motion.img src={image} width={180} />
+            <motion.h1>{name}</motion.h1>
+          </motion.div>
         ))}
       </div>
     </div>
