@@ -16,8 +16,8 @@ export default function Projects() {
     {
       id: 1,
       name: "Blerry",
-      //   image: "/code-programing-symbol.svg",
-      image: "../../../assets/abstract_liquid_marble.jpeg",
+      image: "/code-programing-symbol.svg",
+      //   image: "../../../assets/abstract_liquid_marble.jpeg",
     },
     {
       id: 2,
@@ -53,14 +53,26 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="projects-container">
+      <div
+        className="projects-container"
+        style={{ display: "flex", flexWrap: "wrap", height: "" }}
+      >
         {featuredProjects.map(({ id, name, image }) => (
           <motion.div
             layoutId={id}
             onClick={() => setSelectedId(id)}
-            // style={{ display: "flex", flexDirection: "column" }}
+            style={{
+              backgroundColor: "grey",
+              flex: 1,
+              margin: 10,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              // justifyContent: "center",
+              borderRadius: "1rem",
+            }}
           >
-            <motion.img src={image} width={180} />
+            <motion.img src={image} style={{ width: 120 }} />
             <motion.h1>{name}</motion.h1>
           </motion.div>
         ))}
