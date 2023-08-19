@@ -1,15 +1,8 @@
 .projects {
-  /* background-color: var(--dark-pink); */
-  /* color: var(--dark-pink); */
-  color: #010101;
-  /* color: var(--light-gold); */
   color: rgb(13, 13, 26);
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../../../assets/yellow-rocket-ship.jpg"); */
-  /* background-image: url("../../../assets/yellow-rocket-ship-2000.jpg"); */
+  /* color: var(--light-gold); */
   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url("../../../assets/yellow-rocket-ship-2000.jpg");
-  /* background-image: url("../../../assets/deploy-test.svg"); */
 
   /* display: flex; */
   /* justify-content: center; */
@@ -17,15 +10,14 @@
   background-position: center;
   /* background-repeat: no-repeat; */
   background-size: cover;
+
+  height: 100vh;
 }
 
 .heading {
-  /* display: flex; */
-  /* align-items: center; */
   font-size: 5rem;
   letter-spacing: -0.03em;
   margin: 0px;
-  /* padding: 25px 0; */
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -40,15 +32,83 @@
 }
 
 .string-text {
+  /* font-size: 3.8rem; */
   font-size: 1.8rem;
   line-height: 130.4%;
-  /* color: #8b8b8b;
-  color: var(--light-pink);
-  color: #010101; */
 }
 
 @media (max-width: 768px) {
   .string-text {
+    /* font-size: 1.8rem; */
     font-size: 1.2rem;
   }
+}
+
+.projects > div {
+}
+
+.projects-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  height: 55%;
+}
+
+.projects-container {
+  padding: 10px;
+  border: 1px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  /* height: 100vh; */
+  height: 80%;
+}
+
+.project-card {
+  background-color: var(--dark-blue);
+  margin: 10px auto;
+  padding: 10px;
+  /* cursor: pointer; */
+
+  /* max-width: 350px; */
+  max-width: 20%;
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1; */
+}
+
+.project-card img {
+  width: 100%;
+}
+
+/* .selected-project-container {
+}
+
+.selected-project-card {
+
+}
+
+.selected-project-card img {
+} */
+
+/* @media (max-width: 1500px) {
+  .project-card {
+    width: 270px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 125px;
+  }
+
+  .project-card > img {
+  }
+
+  /* .selected-project-card {
+  }
+
+  .selected-project-card img {
+    width: 100%;
+  } */
 }

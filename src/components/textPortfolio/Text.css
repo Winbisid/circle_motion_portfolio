@@ -1,9 +1,15 @@
+html {
+  /* scroll-snap-type: y mandatory; */
+}
+
 .text-main-wrapper {
   /* margin: 0 50px; */
+  /* perspective: 500px; */
 }
 
 .text-main-wrapper > div {
   height: 100vh;
+  /* scroll-snap-align: center; */
 }
 
 .margin-wrapper {

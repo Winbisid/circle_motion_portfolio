@@ -17,8 +17,9 @@ export default function Projects() {
     {
       id: 1,
       name: "Blerry",
-      image: "/code-programing-symbol.svg",
-      //   image: "../../../assets/abstract_liquid_marble.jpeg",
+      // image: "/developer-arcade-96.png",
+      // image: "code-programing-symbol.svg",
+      image: "/work-desk-ai.jpg",
     },
     {
       id: 2,
@@ -54,87 +55,68 @@ export default function Projects() {
         </p>
       </div>
 
-      <div
-        className="projects-wrapper"
-        onClick={() => selectedProject && setSelectedProject(null)}
-        // style={{ border: "1px solid black", height: "60%" }}
-      >
-        <div
+      <div className="projects-wrapper">
+        <motion.div
           className="projects-container"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            height: "",
-            filter: selectedProject && "blur(2px)",
-            opacity: selectedProject && 0.5,
-            //   pointerEvents: selectedProject && "none",
-            //   cursor: selectedProject && "pointer",
-          }}
+          // onClick={() => selectedProject && setSelectedProject(null)}
+          style={
+            {
+              // filter: selectedProject && "blur(2px)",
+              //   pointerEvents: selectedProject && "none",
+              // cursor: selectedProject && "pointer",
+            }
+          }
+          // animate={{ opacity: selectedProject ? 0.5 : 1 }}
+          // transition={{ duration: 1 }}
         >
           {featuredProjects.map((project) => (
             <motion.div
+              className="project-card"
               layoutId={`${project.id}`}
-              onClick={() => setSelectedProject(project)}
+              // onClick={() => setSelectedProject(project)}
               style={{
-                backgroundColor: "grey",
-                flex: 1,
-                margin: 10,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                // justifyContent: "center",
                 borderRadius: "1rem",
               }}
             >
-              <motion.img src={project.image} style={{ width: 120 }} />
+              <div className="img-div">
+                <motion.img src={project.image} />
+              </div>
+              {/* <div> */}
               <motion.h1>{project.name}</motion.h1>
+              {/* </div> */}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <AnimatePresence>
-          {/* <div className="selected-project-container" style={{ width: "100%" }}> */}
-          {selectedProject && (
-            <motion.div
-              layoutId={`${selectedProject.id}`}
-              style={{
-                backgroundColor: "grey",
-                //   flex: 1,
-                margin: "0 auto",
-                // padding: 10,
-                width: "50%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                //   justifyContent: "center",
-                borderRadius: "1rem",
-                //   position: "absolute",
-                // top:
-                // left: "50vw",
-                // right: "50vw",
-              }}
-              // initial={{
-              //   display: "flex",
-              //   flexDirection: "column",
-              //   alignItems: "center",
-              //   borderRadius: "1.2rem",
-              //   backgroundColor: "grey",
-              //   margin: "0 auto",
-              //   width: "50%",
-              // }}
-            >
-              <motion.img src={selectedProject.image} style={{ width: 250 }} />
-              <motion.h1>{selectedProject.name}</motion.h1>
-              <motion.button
-                onClick={() => setSelectedProject(null)}
-                style={{}}
+        {/* <AnimatePresence>
+          <div className="selected-project-container">
+            {selectedProject && (
+              <motion.div
+                className="selected-project-card"
+                layoutId={`${selectedProject.id}`}
+                style={{
+                  borderRadius: "1rem",
+                }}
+                // transition={{ duration: 0.5 }}
               >
-                X
-              </motion.button>
-            </motion.div>
-          )}
-          {/* </div> */}
-        </AnimatePresence>
+                <div>
+                  <motion.img
+                    src={selectedProject.image}
+                    animate={{ width: [300, 500] }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                  />
+                </div>
+                <motion.h1>{selectedProject.name}</motion.h1>
+                <motion.button
+                  onClick={() => setSelectedProject(null)}
+                  //   style={{ alignSelf: "flex-end" }}
+                >
+                  X
+                </motion.button>
+              </motion.div>
+            )}
+          </div>
+        </AnimatePresence> */}
       </div>
     </div>
   );
