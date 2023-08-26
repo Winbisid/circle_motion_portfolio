@@ -130,8 +130,18 @@ export default function Projects() {
         {/* <CursorProjects /> */}
 
         <div>
-          <button onClick={switchCardLeft}>{"<-"}</button>
-          <button onClick={switchCardRight}>{"->"}</button>
+          <button
+            style={{ borderRadius: 20, border: 0, padding: 15 }}
+            onClick={switchCardLeft}
+          >
+            {"<-"}
+          </button>
+          <button
+            style={{ borderRadius: 20, border: 0, padding: 15 }}
+            onClick={switchCardRight}
+          >
+            {"->"}
+          </button>
         </div>
 
         {/* <AnimatePresence>
