@@ -44,9 +44,6 @@
   }
 }
 
-.projects > div {
-}
-
 .projects-wrapper {
   display: flex;
   align-items: center;
@@ -55,68 +52,46 @@
   /* height: 55%; */
 }
 
-.projects-container {
+.project-card {
+  min-width: 280px;
+  width: 50vw;
+  height: 50vh;
+  background-color: var(--light-purple);
+  background-color: rgba(13, 13, 26, 0.3);
+  border-radius: 1.2rem;
   padding: 10px;
-  border: 1px solid green;
+}
+
+.img-div {
+  height: 50%;
+
+  & > img {
+    height: 100%;
+    width: 100%;
+    /* max-width: 300px; */
+    border-radius: 1rem;
+  }
+}
+
+.title-div h2 {
+  margin: 10px;
+}
+
+.languages-div {
   display: flex;
   flex-wrap: wrap;
-  /* height: 100vh; */
-  /* height: 80%; */
-  height: 100%;
-}
 
-.project-card {
-  background-color: var(--dark-blue);
-  margin: 10px auto;
-  padding: 10px;
-  /* cursor: pointer; */
-
-  /* max-width: 350px; */
-  /* max-width: 20%; */
-  /* max-width: 40%;
-  max-height: 40%; */
-  width: 40%;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  /* flex-grow: 1; */
-}
-
-.project-card img {
-  width: 100%;
-  /* max-width: 300px; */
-}
-
-/* .selected-project-container {
-}
-
-.selected-project-card {
-
-}
-
-.selected-project-card img {
-} */
-
-/* @media (max-width: 1500px) {
-  .project-card {
-    width: 270px;
+  & p {
+    margin: 10px;
+    border-radius: 25px;
+    padding: 10px;
   }
-} */
+}
 
 @media (max-width: 768px) {
-  .project-card {
+  /* .project-card {
     width: 125px;
     font-size: small;
-  }
-
-  .project-card > img {
-  }
-
-  /* .selected-project-card {
-  }
-
-  .selected-project-card img {
-    width: 100%;
   } */
 }
 
@@ -371,44 +346,4 @@ ul {
   content: "";
   display: table;
   clear: both;
-}
-
-/* -------- -------- -------- */
-/* ---- THIRD ITERATION ---- */
-/* -------- -------- --------*/
-
-.secondary-card {
-  min-width: 280px;
-  width: 50vw;
-  height: 50vh;
-  background-color: var(--light-purple);
-  background-color: rgba(13, 13, 26, 0.3);
-  border-radius: 1.2rem;
-  padding: 10px;
-}
-
-.img-div {
-  height: 50%;
-
-  & > img {
-    height: 100%;
-    width: 100%;
-    /* max-width: 300px; */
-    border-radius: 1rem;
-  }
-}
-
-.title-div h2 {
-  margin: 10px;
-}
-
-.languages-div {
-  display: flex;
-  flex-wrap: wrap;
-
-  & p {
-    margin: 10px;
-    border-radius: 25px;
-    padding: 10px;
-  }
 }
