@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import "./Home.css";
+import Nav from "../nav/Nav";
 
 export default function Home() {
   return (
     <div className="home">
+      <Nav />
       <div className="margin-wrapper">
         <div id="image">
           <motion.img
