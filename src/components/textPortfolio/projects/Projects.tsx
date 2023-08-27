@@ -2,12 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Projects.css";
 
-interface ProjectInterface {
-  id: number;
-  name: string;
-  image: string;
-}
-
 interface CardInterface {
   id: number;
   name: string;
@@ -126,23 +120,24 @@ export default function Projects() {
 
       <div className="projects-wrapper">
         {/* <SecondaryCard project={card} /> */}
+        <button
+          style={{ borderRadius: 20, border: 0, padding: 15 }}
+          onClick={switchCardLeft}
+        >
+          {"<-"}
+        </button>
         <SecondaryCard project={featuredCards[idx]} />
         {/* <CursorProjects /> */}
-
-        <div>
-          <button
-            style={{ borderRadius: 20, border: 0, padding: 15 }}
-            onClick={switchCardLeft}
-          >
-            {"<-"}
-          </button>
-          <button
-            style={{ borderRadius: 20, border: 0, padding: 15 }}
-            onClick={switchCardRight}
-          >
-            {"->"}
-          </button>
-        </div>
+        {/* <DirectionImage
+          imageSrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-dali.png"
+          text="Salvador Dali"
+        /> */}
+        <button
+          style={{ borderRadius: 20, border: 0, padding: 15 }}
+          onClick={switchCardRight}
+        >
+          {"->"}
+        </button>
 
         {/* <AnimatePresence>
           <div className="selected-project-container">
@@ -182,171 +177,9 @@ export default function Projects() {
   3D CURSOR
 */
 
-interface ProjectDataInterface {
-  id: number;
-  name: string;
-  image: string;
-}
-
 interface CursorXYInterface {
   x: number | null;
   y: number | null;
-}
-
-export function CursorProjects() {
-  // data
-  const featuredProjects: ProjectDataInterface[] = [
-    {
-      id: 1,
-      name: "Angus Young",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-angus.png",
-    },
-    {
-      id: 2,
-      name: "Aurora",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png",
-    },
-    {
-      id: 3,
-      name: "L'Homme qui rit",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-man.png",
-    },
-    {
-      id: 4,
-      name: "Visualization",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v.png",
-    },
-    {
-      id: 5,
-      name: "Visualization II",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v2.png",
-    },
-    {
-      id: 6,
-      name: "Visualization III",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v3.png",
-    },
-    {
-      id: 7,
-      name: "Zombie",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-worms.png",
-    },
-    {
-      id: 8,
-      name: "X-Rays",
-      image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png",
-    },
-  ];
-
-  const listRef = useRef();
-
-  const [w, setW] = useState<number | null>(null);
-  const [h, setH] = useState<number | null>(null);
-  const [l, setL] = useState<number | null>(null);
-  const [t, setT] = useState<number | null>(null);
-
-  const [hoverStatus, setHoverStatus] = useState<"in" | "out">("out");
-  const [cursorXY, setCursorXY] = useState<CursorXYInterface>({
-    x: null,
-    y: null,
-  });
-
-  useEffect(() => {
-    let box = listRef?.current;
-    setW(box?.offsetWidth);
-    setH(box?.offsetHeight);
-    setL(box?.offsetLeft);
-    setT(box?.offsetTop);
-
-    const moveCursor = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      setCursorXY({ x, y });
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, []);
-
-  function getDirection(pos: CursorXYInterface): number {
-    const x = pos.x! - l! - (w! / 2) * (w! > h! ? h! / w! : 1);
-    const y = pos.y! - t! - (h! / 2) * (h! > w! ? w! / h! : 1);
-    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-    console.log("-----------");
-    console.log("-----------");
-    console.log(w, h, l, t);
-    console.log("-----------");
-    console.log(x, y, d);
-    console.log("-----------");
-    console.log("-----------");
-    return d;
-  }
-
-  function addClass(pos: CursorXYInterface, status: "in" | "out") {
-    const direction = getDirection(pos);
-
-    let classNameSuffix = "";
-    switch (direction) {
-      case 0:
-        classNameSuffix = "-top";
-        break;
-      case 1:
-        classNameSuffix = "-right";
-        break;
-      case 2:
-        classNameSuffix = "-bottom";
-        break;
-      case 3:
-        classNameSuffix = "-left";
-        break;
-    }
-
-    listRef.current.className = "";
-    listRef.current.classList.add(status + classNameSuffix);
-    // this.element.className = "";
-    // this.element.classList.add(state + classNameSuffix);
-  }
-
-  useEffect(() => {
-    // console.log(listRef.current.className);
-    // listRef.current.className = "do";
-    addClass(cursorXY, hoverStatus);
-  }, [cursorXY, hoverStatus]);
-
-  return (
-    <div className="wrap" style={{ border: "1px solid grey" }}>
-      <ul className="-center" style={{ border: "1px solid red" }}>
-        {featuredProjects.map((project) => (
-          <motion.li
-            id="list"
-            ref={listRef}
-            // whileHover={() => console.log("a")}
-            onHoverStart={() => setHoverStatus("in")}
-            onHoverEnd={() => setHoverStatus("out")}
-          >
-            <div className="w">
-              <div className="f">
-                <svg viewBox="0 0 180 180">
-                  <image
-                    xlinkHref={project.image}
-                    preserveAspectRatio="xMidYMid slice"
-                    width={"100%"}
-                    height={"100%"}
-                  />
-                </svg>
-              </div>
-              <div className="b">
-                <h3>{project.name}</h3>
-              </div>
-            </div>
-          </motion.li>
-        ))}
-      </ul>
-    </div>
-  );
 }
 
 export function SecondaryCard({ project }: { project: CardInterface }) {
@@ -368,7 +201,7 @@ export function SecondaryCard({ project }: { project: CardInterface }) {
     <div className="project-card">
       <div className="img-div">
         {/* <img src={image} alt={name + " project image"} /> */}
-        <motion.img
+        {/* <motion.img
           key={image}
           src={image}
           alt={name + " project image"}
@@ -376,7 +209,8 @@ export function SecondaryCard({ project }: { project: CardInterface }) {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -300, opacity: 0 }}
           // transition={{duration: 2}}
-        />
+        /> */}
+        <DirectionImage imageSrc={image} text={name} />
       </div>
 
       <div className="title-div">
@@ -393,7 +227,9 @@ export function SecondaryCard({ project }: { project: CardInterface }) {
       <div className="languages-div">
         {languages.map((language: string) => (
           <motion.p
-            style={{ backgroundColor: `${colors[language]}` }}
+            style={{
+              backgroundColor: `${colors[language as keyof typeof colors]}`,
+            }}
             key={language}
             initial={{ y: 200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -406,5 +242,121 @@ export function SecondaryCard({ project }: { project: CardInterface }) {
       </div>
     </div>
     // </AnimatePresence>
+  );
+}
+
+export function DirectionImage({
+  imageSrc,
+  text,
+}: {
+  imageSrc: string;
+  text: string;
+}) {
+  const [hoverStatus, setHoverStatus] = useState<"in" | "out">("out");
+  const [cursorXY, setCursorXY] = useState<CursorXYInterface>({
+    x: null,
+    y: null,
+  });
+  const listRef = useRef<HTMLInputElement>(null);
+
+  let w: number | undefined,
+    h: number | undefined,
+    l: number | undefined,
+    t: number | undefined;
+
+  useEffect(() => {
+    let box = listRef?.current;
+    w = box?.offsetWidth;
+    h = box?.offsetHeight;
+    l = box?.offsetLeft;
+    // l = box?.getBoundingClientRect().left;
+    // t = box?.offsetTop;
+    t = box?.getBoundingClientRect().top;
+  });
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      setCursorXY({ x, y });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+    };
+  }, []);
+
+  function getDirection(pos: CursorXYInterface): string {
+    const directions = ["-top", "-right", "-bottom", "-left"];
+
+    const x = pos.x! - l! - (w! / 2) * (w! > h! ? h! / w! : 1);
+    const y = pos.y! - t! - (h! / 2) * (h! > w! ? w! / h! : 1);
+    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
+
+    return directions[d];
+  }
+
+  function addClass(pos: CursorXYInterface, status: "in" | "out") {
+    const direction = getDirection(pos);
+
+    listRef.current!.className = "";
+    listRef?.current!.classList.add(status + direction);
+  }
+
+  useEffect(() => {
+    addClass(cursorXY, hoverStatus);
+  }, [hoverStatus]);
+
+  return (
+    // <div className="wrap">
+    <ul
+      className="-center"
+      style={{ background: "coral", borderRadius: "1rem" }}
+    >
+      <motion.li
+        id="list"
+        ref={listRef}
+        onHoverStart={() => setHoverStatus("in")}
+        onHoverEnd={() => setHoverStatus("out")}
+        // style={{ background: "coral", borderRadius: "1rem" }}
+      >
+        <div className="w">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: hoverStatus === "out" ? 1 : 0 }}
+            style={{ borderRadius: "1rem" }}
+            className="f"
+          >
+            {/* <svg viewBox="0 0 180 180" style={{ borderRadius: "2rem" }}>
+                <image
+                  xlinkHref={imageSrc}
+                  preserveAspectRatio="xMidYMid slice"
+                  width={"100%"}
+                  height={"100%"}
+                  style={{ borderRadius: "2rem" }}
+                />
+              </svg> */}
+            <img
+              style={{ borderRadius: "1rem" }}
+              src={imageSrc}
+              width={"100%"}
+              height={"100%"}
+              alt={text + "project image"}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: hoverStatus === "in" ? 1 : 0 }}
+            style={{ borderRadius: "1rem" }}
+            className="b"
+          >
+            <h1>{text.toUpperCase()}</h1>
+          </motion.div>
+        </div>
+      </motion.li>
+    </ul>
+    // </div>
   );
 }
