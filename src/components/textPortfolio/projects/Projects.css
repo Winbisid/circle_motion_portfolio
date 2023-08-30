@@ -61,7 +61,7 @@
   border-radius: 1.2rem;
   padding: 10px;
 
-  /* max-width: 800px; */
+  /* max-width: 500px; */
 }
 
 .img-div {
@@ -371,6 +371,14 @@ ul {
   max-width: calc((var(--size) + (var(--gap) * 2)) * 4);
   margin: 0 auto;
   list-style: none;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 127, 80, 0.9),
+    rgba(31, 218, 154, 0.5),
+    rgba(0, 0, 0, 0.1) 160%
+  );
+  background-color: rgba(255, 127, 80, 0.9);
 }
 
 .-center::after {
