@@ -9,5 +9,6 @@ export { PATHS, SVG_PATHS, ARROW_PATHS, leftArrowClick, rightArrowClick };
 
 // TEXT PORTFOLIO EXPORTS
 import featuredCards from "./textPortfolio/featuredCards";
+import colors from "./textPortfolio/colors";
 
-export { featuredCards };
+export { featuredCards, colors };
