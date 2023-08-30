@@ -112,19 +112,15 @@ export default function Projects() {
       </div>
 
       <div className="projects-wrapper">
-        {/* <SecondaryCard project={card} /> */}
         <button
           style={{ borderRadius: 20, border: 0, padding: 15 }}
           onClick={switchCardLeft}
         >
           {"<-"}
         </button>
+
         <ProjectCard project={featuredCards[idx]} />
-        {/* <CursorProjects /> */}
-        {/* <DirectionImage
-          imageSrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-dali.png"
-          text="Salvador Dali"
-        /> */}
+
         <button
           style={{ borderRadius: 20, border: 0, padding: 15 }}
           onClick={switchCardRight}
