@@ -4,9 +4,6 @@ import { featuredCards } from "../../../utils";
 import "./Projects.css";
 
 export default function Projects() {
-  // const [selectedProject, setSelectedProject] =
-  //   useState<ProjectInterface | null>(null);
-
   const [idx, setIdx] = useState<number>(0);
 
   function switchCardRight() {
@@ -43,21 +40,11 @@ export default function Projects() {
       </div>
 
       <div className="projects-wrapper">
-        <button
-          style={{ borderRadius: 20, border: 0, padding: 15 }}
-          onClick={switchCardLeft}
-        >
-          {"<-"}
-        </button>
+        <button onClick={switchCardLeft}>{"👈"}</button>
 
         <ProjectCard project={featuredCards[idx]} />
 
-        <button
-          style={{ borderRadius: 20, border: 0, padding: 15 }}
-          onClick={switchCardRight}
-        >
-          {"->"}
-        </button>
+        <button onClick={switchCardRight}>{"👉"}</button>
 
         {/* <AnimatePresence>
           <div className="selected-project-container">
