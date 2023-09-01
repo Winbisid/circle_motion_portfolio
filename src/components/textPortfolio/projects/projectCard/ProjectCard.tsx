@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 // import DirectionImage from "../directionImage/DirectionImage";
 import { colors } from "../../../../utils";
+import "./ProjectCard.css";
 
 interface CardInterface {
   id: number;
