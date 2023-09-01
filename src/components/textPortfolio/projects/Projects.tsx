@@ -5,6 +5,7 @@ import "./Projects.css";
 
 export default function Projects() {
   const [idx, setIdx] = useState<number>(0);
+  const [clickRight, setClickRight] = useState<true | false>(true);
 
   function switchCardRight() {
     if (idx === featuredCards.length - 1) {
@@ -12,6 +13,8 @@ export default function Projects() {
     } else {
       setIdx((prev) => prev + 1);
     }
+
+    setClickRight(true);
   }
 
   function switchCardLeft() {
@@ -20,6 +23,8 @@ export default function Projects() {
     } else {
       setIdx((prev) => prev - 1);
     }
+
+    setClickRight(false);
   }
 
   return (
@@ -42,7 +47,7 @@ export default function Projects() {
       <div className="projects-wrapper">
         <button onClick={switchCardLeft}>{"👈"}</button>
 
-        <ProjectCard project={featuredCards[idx]} />
+        <ProjectCard project={featuredCards[idx]} clickDir={clickRight} />
 
         <button onClick={switchCardRight}>{"👉"}</button>
 

@@ -10,8 +10,16 @@ interface CardInterface {
   languages: string[];
 }
 
-export default function SecondaryCard({ project }: { project: CardInterface }) {
+export default function SecondaryCard({
+  project,
+  clickDir,
+}: {
+  project: CardInterface;
+  clickDir: true | false;
+}) {
   const { name, image, languages } = project;
+
+  console.log(`${clickDir}`);
 
   return (
     // <AnimatePresence>
@@ -21,9 +29,9 @@ export default function SecondaryCard({ project }: { project: CardInterface }) {
           key={image}
           src={image}
           alt={name + " project image"}
-          initial={{ x: 300, opacity: 0 }}
+          initial={{ x: clickDir ? 300 : -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -300, opacity: 0 }}
+          exit={{ x: clickDir ? -300 : 300, opacity: 0 }}
           // transition={{duration: 2}}
         />
         {/* <DirectionImage /*key={image}/ imageSrc={image} text={name} /> */}
