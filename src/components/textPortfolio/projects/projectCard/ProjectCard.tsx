@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import DirectionImage from "../directionImage/DirectionImage";
+// import DirectionImage from "../directionImage/DirectionImage";
 import { colors } from "../../../../utils";
 
 interface CardInterface {
@@ -16,17 +16,16 @@ export default function SecondaryCard({ project }: { project: CardInterface }) {
     // <AnimatePresence>
     <div className="project-card">
       <div className="img-div">
-        {/* <img src={image} alt={name + " project image"} /> */}
-        {/* <motion.img
-            key={image}
-            src={image}
-            alt={name + " project image"}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            // transition={{duration: 2}}
-          /> */}
-        <DirectionImage /*key={image}*/ imageSrc={image} text={name} />
+        <motion.img
+          key={image}
+          src={image}
+          alt={name + " project image"}
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          // transition={{duration: 2}}
+        />
+        {/* <DirectionImage /*key={image}/ imageSrc={image} text={name} /> */}
       </div>
 
       <div className="title-div">

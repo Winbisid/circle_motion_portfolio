@@ -80,33 +80,38 @@ export default function Expertise() {
         name: "Git",
         source: "/icons/git.svg",
       },
-      //   {
-      //     id: 15,
-      //     name: "GitHub",
-      //     source: "/icons/github.svg",
-      //   },
+      // {
+      //   id: 15,
+      //   name: "GitHub",
+      //   source: "/icons/github.svg",
+      // },
       {
         id: 16,
         name: "Bash",
         source: "/icons/bash.svg",
       },
+      {
+        id: 17,
+        name: "Expo",
+        source: "/icons/expo.svg",
+      },
+      {
+        id: 18,
+        name: "VS Code",
+        source: "/icons/visual-studio-code-insiders.svg",
+      },
+      {
+        id: 19,
+        name: "Linux",
+        source: "/icons/no-no-linux.svg",
+      },
+      // {
+      //   id: 20,
+      //   name: "Kali Linux",
+      //   source: "/icons/kali-linux.svg",
+      // },
       //   {
-      //     id: 17,
-      //     name: "Expo",
-      //     source: "/icons/expo.svg",
-      //   },
-      //   {
-      //     id: 18,
-      //     name: "VS Code",
-      //     source: "/icons/visual-studio-code-insiders.svg",
-      //   },
-      //   {
-      //     id: 19,
-      //     name: "Kali Linux",
-      //     source: "/icons/kali-linux.svg",
-      //   },
-      //   {
-      //     id: 20,
+      //     id: 21,
       //     name: "Replit",
       //     source: "/icons/replit.svg",
       //   },

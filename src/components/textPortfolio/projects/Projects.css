@@ -4,7 +4,8 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url("../../../assets/yellow-rocket-ship-2000.jpg");
 
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
   background-position: center;
@@ -50,6 +51,7 @@
   justify-content: center;
   /* border: 1px solid red; */
   /* height: 55%; */
+  flex: 1;
 }
 
 .project-card {
@@ -61,11 +63,12 @@
   border-radius: 1.2rem;
   padding: 10px;
 
-  /* max-width: 500px; */
+  max-width: 700px;
 }
 
 .img-div {
-  height: 50%;
+  /* height: 50%; */
+  height: 55%;
 
   & > img {
     height: 100%;
@@ -92,8 +95,7 @@
 
 @media (max-width: 768px) {
   /* .project-card {
-    width: 125px;
-    font-size: small;
+    height: 50vh;
   } */
 }
 

@@ -82,26 +82,26 @@
 }
 
 /* // goes from 1 - 11 */
-@keyframes iconsContainerAnim1 {
-  from {
-    transform: translateX(-52%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes iconsContainerAnim2 {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-52%);
-  }
-}
-
 /* @keyframes iconsContainerAnim1 {
   from {
+    transform: translateX(-52%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes iconsContainerAnim2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-52%);
+  }
+} */
+
+@keyframes iconsContainerAnim1 {
+  from {
     transform: translateX(-86%);
   }
   to {
@@ -116,4 +116,4 @@
   to {
     transform: translateX(-86%);
   }
-} */
+}
