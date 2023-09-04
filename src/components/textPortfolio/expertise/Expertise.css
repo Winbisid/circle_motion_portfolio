@@ -12,15 +12,14 @@
 .icons-section {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   /* transition: all 0.3s ease-in-out; */
+  height: 100%;
 }
 
 .icons-section__bottom {
   overflow-x: hidden;
-  /* margin-top: 8rem; */
-  margin-top: 5rem;
-  margin-bottom: 4rem;
+  height: 100%;
 }
 
 .icons-section__bottom-wrapper {
@@ -28,6 +27,7 @@
   justify-content: space-between;
   align-items: center;
   width: max-content;
+  height: 50%;
 }
 .icons-section__bottom-wrapper .icons-container {
   background: #171e2f;
