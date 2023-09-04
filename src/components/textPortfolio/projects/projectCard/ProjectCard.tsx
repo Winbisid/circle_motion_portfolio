@@ -55,8 +55,8 @@ export default function SecondaryCard({
               backgroundColor: `${colors[language as keyof typeof colors][0]}`,
               color:
                 colors[language as keyof typeof colors][1] == "dark"
-                  ? "rgba(0,0,0,0.5)"
-                  : "rgba(255,255,255,0.5)",
+                  ? "rgba(0,0,0,0.7)"
+                  : "rgba(255,255,255,0.7)",
             }}
             key={language}
             initial={{ y: 200, opacity: 0 }}
