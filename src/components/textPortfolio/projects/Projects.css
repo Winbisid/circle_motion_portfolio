@@ -12,8 +12,14 @@
   /* background-repeat: no-repeat; */
   background-size: cover;
 
-  height: 100vh;
+  /* height: 100vh; */
 }
+
+/* @media (min-width: 768px) {
+  .projects {
+    min-height: 1200px;
+  }
+} */
 
 .heading {
   font-size: 5rem;
@@ -54,7 +60,7 @@
   flex: 1;
 
   & button {
-    background-color: aquamarine;
+    background-color: rgb(127, 255, 212);
     border-radius: 50%;
     border: 0px;
     /* padding: 15px; */

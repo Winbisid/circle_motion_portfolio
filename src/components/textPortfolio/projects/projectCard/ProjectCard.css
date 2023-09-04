@@ -56,7 +56,8 @@
 }
 
 .project-card:hover {
-  --s: 100px; /* control the size */
+  /*--s: 100px;  /*control the size/ */
+  --s: 10px;
   /* --c1: var(--light-purple);
   --c2: var(--light-gold); */
 
