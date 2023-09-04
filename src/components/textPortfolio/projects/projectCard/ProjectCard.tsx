@@ -52,7 +52,11 @@ export default function SecondaryCard({
         {languages.map((language: string) => (
           <motion.p
             style={{
-              backgroundColor: `${colors[language as keyof typeof colors]}`,
+              backgroundColor: `${colors[language as keyof typeof colors][0]}`,
+              color:
+                colors[language as keyof typeof colors][1] == "dark"
+                  ? "rgba(0,0,0,0.5)"
+                  : "rgba(255,255,255,0.5)",
             }}
             key={language}
             initial={{ y: 200, opacity: 0 }}

@@ -1,25 +1,12 @@
-// const colors = {
-//   HTML: "red",
-//   CSS: "crimson",
-//   JavaScript: "orange",
-//   TypeScript: "blue",
-//   React: "lightblue",
-//   "React Native": "skyblue",
-//   "Next.js": "grey",
-//   Expo: "aqua",
-// };
-
 const colors = {
-  HTML: "#E65100",
-  CSS: "#039BE5",
-  JavaScript: "#FFD600",
-  TypeScript: "#1976D2",
-  React: "#149ECA",
-  "React Native": "#80DEEA",
-  "Next.js": "#212121",
-  Expo: "#105CA0",
+  HTML: ["#E65100", "light"],
+  CSS: ["#039BE5", "dark"],
+  JavaScript: ["#FFD600", "dark"],
+  TypeScript: ["#1976D2", "light"],
+  React: ["#149ECA", "dark"],
+  "React Native": ["#80DEEA", "dark"],
+  "Next.js": ["#212121", "light"],
+  Expo: ["#105CA0", "light"],
 };
 
 export default colors;
-
-// could make it an array of two and provide font colors too
