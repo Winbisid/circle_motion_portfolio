@@ -15,3 +15,9 @@ html {
 .margin-wrapper {
   margin: 0 50px;
 }
+
+@media (min-width: 768px) {
+  .text-main-wrapper > div {
+    min-height: 1000px;
+  }
+}
