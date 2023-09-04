@@ -21,3 +21,5 @@ const colors = {
 };
 
 export default colors;
+
+// could make it an array of two and provide font colors too
