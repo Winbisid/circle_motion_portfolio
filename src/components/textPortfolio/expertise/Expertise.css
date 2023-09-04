@@ -31,17 +31,17 @@
 }
 .icons-section__bottom-wrapper .icons-container {
   background: #171e2f;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
   padding: 3rem;
   margin: 1.5rem;
 }
 
-.icons-section__bottom-wrapper .icons-container__top {
+/* .icons-section__bottom-wrapper .icons-container__top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
-}
+} */
 
 .icons-container__anim1 {
   animation: iconsContainerAnim1 35s ease-in-out infinite alternate;
