@@ -32,11 +32,13 @@
   justify-content: space-between;
 
   & p {
+    /* flex: 1; */
     margin: 10px;
     border-radius: 25px;
     /* padding: 10px; */
     padding: 7%;
     font-weight: 500;
+    font-size: 1.3rem;
   }
 
   & p:hover {
@@ -48,6 +50,7 @@
 @media (max-width: 768px) {
   .languages-div p {
     padding: 12px;
+    font-size: 1rem;
   }
 }
 
