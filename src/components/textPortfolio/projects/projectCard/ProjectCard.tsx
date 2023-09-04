@@ -43,6 +43,7 @@ export default function SecondaryCard({
           // initial={{ x: 300, opacity: 0 }}
           // animate={{ x: 0, opacity: 1 }}
           // exit={{ x: -300, opacity: 0 }}
+          // style={{ color: "rgba(255,255,255,0.7" }}
         >
           {name}
         </motion.h2>
