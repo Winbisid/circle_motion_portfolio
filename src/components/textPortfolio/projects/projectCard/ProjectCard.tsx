@@ -10,16 +10,16 @@ interface CardInterface {
   languages: string[];
 }
 
-export default function SecondaryCard({
+export default function ProjectCard({
   project,
   clickDir,
+  setClickedImage,
 }: {
   project: CardInterface;
   clickDir: true | false;
+  setClickedImage: any;
 }) {
   const { name, image, languages } = project;
-
-  console.log(`${clickDir}`);
 
   return (
     // <AnimatePresence>
@@ -33,6 +33,7 @@ export default function SecondaryCard({
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: clickDir ? -300 : 300, opacity: 0 }}
           // transition={{duration: 2}}
+          onClick={() => setClickedImage(true)}
         />
         {/* <DirectionImage /*key={image}/ imageSrc={image} text={name} /> */}
       </div>

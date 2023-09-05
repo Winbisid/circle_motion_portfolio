@@ -4,12 +4,16 @@ const featuredCards = [
     name: "Angus Young",
     image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-angus.png",
     languages: ["HTML", "CSS"],
+    // webLink: "https://afrocoast233.com",
+    // repo: "https://github.com/winbisid/...",
   },
   {
     id: 2,
-    name: "Aurora",
+    name: "Next Meetups",
     image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png",
-    languages: ["HTML", "CSS", "JavaScript", "React"],
+    languages: ["JavaScript", "React", "Next.js"],
+    repo: "https://github.com/winbisid/next_meetups",
+    webLink: "https://meetup-sand.vercel.app",
   },
   {
     id: 3,
@@ -19,9 +23,11 @@ const featuredCards = [
   },
   {
     id: 4,
-    name: "MountFo",
+    name: "Portfolio",
     image: "/project-images/mountain-forest.jpg",
-    languages: ["HTML", "CSS", "TypeScript", "Next.js"],
+    languages: ["TypeScript", "React" /*"Framer Motion"*/],
+    repo: "https://github.com/winbisid/circle_motion_portfolio",
+    // webLink: ":sprinkles: already here",
   },
 ];
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./projectCard/ProjectCard";
 import { featuredCards } from "../../../utils";
 import "./Projects.css";
@@ -6,6 +7,9 @@ import "./Projects.css";
 export default function Projects() {
   const [idx, setIdx] = useState<number>(0);
   const [clickRight, setClickRight] = useState<true | false>(true);
+  const [clickedImage, setClickedImage] = useState<boolean>(false);
+
+  console.log(clickedImage);
 
   function switchCardRight() {
     if (idx === featuredCards.length - 1) {
@@ -47,16 +51,20 @@ export default function Projects() {
       <div className="projects-wrapper">
         <button onClick={switchCardLeft}>{"👈"}</button>
 
-        <ProjectCard project={featuredCards[idx]} clickDir={clickRight} />
+        <ProjectCard
+          project={featuredCards[idx]}
+          clickDir={clickRight}
+          setClickedImage={setClickedImage}
+        />
 
         <button onClick={switchCardRight}>{"👉"}</button>
 
-        {/* <AnimatePresence>
+        <AnimatePresence>
           <div className="selected-project-container">
-            {selectedProject && (
+            {clickedImage && (
               <motion.div
                 className="selected-project-card"
-                layoutId={`${selectedProject.id}`}
+                layoutId={`${featuredCards[idx].id}`}
                 style={{
                   borderRadius: "1rem",
                 }}
@@ -64,14 +72,40 @@ export default function Projects() {
               >
                 <div>
                   <motion.img
-                    src={selectedProject.image}
-                    animate={{ width: [300, 500] }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    src={featuredCards[idx].image}
+                    // animate={{ width: [300, 500] }}
+                    // transition={{ duration: 1, ease: "easeInOut" }}
                   />
                 </div>
-                <motion.h1>{selectedProject.name}</motion.h1>
+
+                {/* <motion.h1>{featuredCards[idx].name}</motion.h1> */}
+
+                {featuredCards[idx].repo && (
+                  <a
+                    href={featuredCards[idx].repo}
+                    target="_blank "
+                    rel="noreferrer noopener"
+                  >
+                    <img
+                      width={70}
+                      src="/icons/github.svg"
+                      alt="github repository"
+                    />
+                  </a>
+                )}
+
+                {featuredCards[idx].webLink && (
+                  <a
+                    href={featuredCards[idx].webLink}
+                    target="_blank "
+                    rel="noreferrer noopener"
+                  >
+                    <img width={70} src="/icons/replit.svg" alt="web link" />
+                  </a>
+                )}
+
                 <motion.button
-                  onClick={() => setSelectedProject(null)}
+                  onClick={() => setClickedImage(false)}
                   //   style={{ alignSelf: "flex-end" }}
                 >
                   X
@@ -79,7 +113,7 @@ export default function Projects() {
               </motion.div>
             )}
           </div>
-        </AnimatePresence> */}
+        </AnimatePresence>
       </div>
     </div>
   );
