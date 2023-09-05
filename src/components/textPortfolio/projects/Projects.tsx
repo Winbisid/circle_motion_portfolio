@@ -48,7 +48,7 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="projects-wrapper">
+      <div className="projects-wrapper" style={{ position: "relative" }}>
         <button onClick={switchCardLeft}>{"👈"}</button>
 
         <ProjectCard
@@ -60,59 +60,62 @@ export default function Projects() {
         <button onClick={switchCardRight}>{"👉"}</button>
 
         <AnimatePresence>
-          <div className="selected-project-container">
-            {clickedImage && (
-              <motion.div
-                className="selected-project-card"
-                layoutId={`${featuredCards[idx].id}`}
-                style={{
-                  borderRadius: "1rem",
-                }}
-                // transition={{ duration: 0.5 }}
-              >
-                <div>
-                  <motion.img
-                    src={featuredCards[idx].image}
-                    // animate={{ width: [300, 500] }}
-                    // transition={{ duration: 1, ease: "easeInOut" }}
-                  />
-                </div>
+          {clickedImage && (
+            <motion.div
+              className="selected-project-card"
+              layoutId={`${featuredCards[idx].id}`}
+              style={{
+                position: "absolute",
+                backgroundColor: "var(--light-purple)",
+                padding: 10,
+                borderRadius: "1rem",
+                // width: "100%",
+              }}
+              // transition={{ duration: 0.5 }}
+            >
+              <div>
+                <motion.img
+                  src={featuredCards[idx].image}
+                  // animate={{ width: [300, 500] }}
+                  // transition={{ duration: 1, ease: "easeInOut" }}
+                  width={"100%"}
+                />
+              </div>
 
-                {/* <motion.h1>{featuredCards[idx].name}</motion.h1> */}
+              {/* <motion.h1>{featuredCards[idx].name}</motion.h1> */}
 
-                {featuredCards[idx].repo && (
-                  <a
-                    href={featuredCards[idx].repo}
-                    target="_blank "
-                    rel="noreferrer noopener"
-                  >
-                    <img
-                      width={70}
-                      src="/icons/github.svg"
-                      alt="github repository"
-                    />
-                  </a>
-                )}
-
-                {featuredCards[idx].webLink && (
-                  <a
-                    href={featuredCards[idx].webLink}
-                    target="_blank "
-                    rel="noreferrer noopener"
-                  >
-                    <img width={70} src="/icons/replit.svg" alt="web link" />
-                  </a>
-                )}
-
-                <motion.button
-                  onClick={() => setClickedImage(false)}
-                  //   style={{ alignSelf: "flex-end" }}
+              {featuredCards[idx].repo && (
+                <a
+                  href={featuredCards[idx].repo}
+                  target="_blank "
+                  rel="noreferrer noopener"
                 >
-                  X
-                </motion.button>
-              </motion.div>
-            )}
-          </div>
+                  <img
+                    width={70}
+                    src="/icons/github.svg"
+                    alt="github repository"
+                  />
+                </a>
+              )}
+
+              {featuredCards[idx].webLink && (
+                <a
+                  href={featuredCards[idx].webLink}
+                  target="_blank "
+                  rel="noreferrer noopener"
+                >
+                  <img width={70} src="/icons/replit.svg" alt="web link" />
+                </a>
+              )}
+
+              <motion.button
+                onClick={() => setClickedImage(false)}
+                // style={{ alignSelf: "flex-end" }}
+              >
+                X
+              </motion.button>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </div>
