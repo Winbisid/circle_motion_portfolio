@@ -58,6 +58,7 @@
   /* border: 1px solid red; */
   /* height: 55%; */
   flex: 1;
+  position: relative;
 
   & button {
     background-color: rgb(127, 255, 212);
@@ -68,6 +69,7 @@
     margin: 0 auto;
     overflow-x: hidden;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 }
 

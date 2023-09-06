@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import ProjectCard from "./projectCard/ProjectCard";
 import { featuredCards } from "../../../utils";
 import "./Projects.css";
@@ -46,7 +46,7 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="projects-wrapper" style={{ position: "relative" }}>
+      <div className="projects-wrapper">
         <motion.button
           onClick={switchCardLeft}
           initial={{ opacity: 0.5 }}
@@ -56,12 +56,9 @@ export default function Projects() {
         </motion.button>
 
         <motion.div
-          initial={{ visibility: "", opacity: 1 }}
-          animate={{
-            opacity: clickedImage ? 0 : 1,
-            // visibility: clickedImage ? "hidden" : "visible",
-          }}
+          animate={{ opacity: clickedImage ? 0 : 1 }}
           transition={{ duration: 1 }}
+          style={{ pointerEvents: clickedImage ? "none" : "auto" }}
         >
           <ProjectCard
             project={featuredCards[idx]}
@@ -78,57 +75,48 @@ export default function Projects() {
           {"👉"}
         </motion.button>
 
-        <AnimatePresence>
-          {clickedImage && (
-            <motion.div
-              className="selected-project-card"
-              // layout
-              // key={featuredCards[idx].id}
-              layoutId={`${featuredCards[idx].id}`}
-              // initial={{ opacity: 0 }}
-              // animate={{ opacity: 1 }}
-              // transition={{ duration: 2.5 }}
-            >
-              <div className="spc_img-div">
-                <motion.img
-                  src={featuredCards[idx].image}
-                  // animate={{ width: [300, 500] }}
-                  // transition={{ duration: 1, ease: "easeInOut" }}
-                />
+        {/* <AnimatePresence> */}
+        {clickedImage && (
+          <motion.div
+            className="selected-project-card"
+            layoutId={`${featuredCards[idx].id}`}
+          >
+            <div className="spc_img-div">
+              <motion.img src={featuredCards[idx].image} />
 
-                <motion.button
-                  onClick={() => setClickedImage(false)}
-                  initial={{ opacity: 0.5 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  ❌
-                </motion.button>
+              <motion.button
+                onClick={() => setClickedImage(false)}
+                initial={{ opacity: 0.5 }}
+                whileHover={{ opacity: 1 }}
+              >
+                ❌
+              </motion.button>
 
-                <div className="spc_options-div">
-                  {featuredCards[idx].repo && (
-                    <a
-                      href={featuredCards[idx].repo}
-                      target="_blank "
-                      rel="noreferrer noopener"
-                    >
-                      <img src="/github-96.png" alt="github repository" />
-                    </a>
-                  )}
+              <div className="spc_options-div">
+                {featuredCards[idx].repo && (
+                  <a
+                    href={featuredCards[idx].repo}
+                    target="_blank "
+                    rel="noreferrer noopener"
+                  >
+                    <img src="/github-96.png" alt="github repository" />
+                  </a>
+                )}
 
-                  {featuredCards[idx].webLink && (
-                    <a
-                      href={featuredCards[idx].webLink}
-                      target="_blank "
-                      rel="noreferrer noopener"
-                    >
-                      <img src="/link-96-black.png" alt="project link" />
-                    </a>
-                  )}
-                </div>
+                {featuredCards[idx].webLink && (
+                  <a
+                    href={featuredCards[idx].webLink}
+                    target="_blank "
+                    rel="noreferrer noopener"
+                  >
+                    <img src="/link-96-black.png" alt="project link" />
+                  </a>
+                )}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+        {/* </AnimatePresence> */}
       </div>
     </div>
   );

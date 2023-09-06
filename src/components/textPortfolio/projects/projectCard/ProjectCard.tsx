@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-// import DirectionImage from "../directionImage/DirectionImage";
 import { colors } from "../../../../utils";
 import "./ProjectCard.css";
 
@@ -22,7 +21,6 @@ export default function ProjectCard({
   const { name, image, languages } = project;
 
   return (
-    // <AnimatePresence>
     <div className="project-card">
       <div className="img-div">
         <motion.img
@@ -31,11 +29,10 @@ export default function ProjectCard({
           alt={name + " project image"}
           initial={{ x: clickDir ? 300 : -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          exit={{ x: clickDir ? -300 : 300, opacity: 0 }}
-          // transition={{duration: 2}}
+          // exit={{ x: clickDir ? -300 : 300, opacity: 0 }}
           onClick={() => setClickedImage(true)}
+          layoutId={`${project.id}`}
         />
-        {/* <DirectionImage /*key={image}/ imageSrc={image} text={name} /> */}
       </div>
 
       <div className="title-div">
@@ -64,13 +61,11 @@ export default function ProjectCard({
             initial={{ y: 200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -200, opacity: 0 }}
-            // transition={{ duration: 1.5, ease: "easeInOut" }}
           >
             {language}
           </motion.p>
         ))}
       </div>
     </div>
-    // </AnimatePresence>
   );
 }
