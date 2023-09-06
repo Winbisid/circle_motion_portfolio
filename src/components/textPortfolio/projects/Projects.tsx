@@ -9,8 +9,6 @@ export default function Projects() {
   const [clickRight, setClickRight] = useState<true | false>(true);
   const [clickedImage, setClickedImage] = useState<boolean>(false);
 
-  console.log(clickedImage);
-
   function switchCardRight() {
     if (idx === featuredCards.length - 1) {
       setIdx(0);
@@ -49,71 +47,85 @@ export default function Projects() {
       </div>
 
       <div className="projects-wrapper" style={{ position: "relative" }}>
-        <button onClick={switchCardLeft}>{"👈"}</button>
+        <motion.button
+          onClick={switchCardLeft}
+          initial={{ opacity: 0.5 }}
+          whileHover={{ opacity: 1 }}
+        >
+          {"👈"}
+        </motion.button>
 
-        <ProjectCard
-          project={featuredCards[idx]}
-          clickDir={clickRight}
-          setClickedImage={setClickedImage}
-        />
+        <motion.div
+          initial={{ visibility: "", opacity: 1 }}
+          animate={{
+            opacity: clickedImage ? 0 : 1,
+            // visibility: clickedImage ? "hidden" : "visible",
+          }}
+          transition={{ duration: 1 }}
+        >
+          <ProjectCard
+            project={featuredCards[idx]}
+            clickDir={clickRight}
+            setClickedImage={setClickedImage}
+          />
+        </motion.div>
 
-        <button onClick={switchCardRight}>{"👉"}</button>
+        <motion.button
+          onClick={switchCardRight}
+          initial={{ opacity: 0.5 }}
+          whileHover={{ opacity: 1 }}
+        >
+          {"👉"}
+        </motion.button>
 
         <AnimatePresence>
           {clickedImage && (
             <motion.div
               className="selected-project-card"
+              // layout
+              // key={featuredCards[idx].id}
               layoutId={`${featuredCards[idx].id}`}
-              style={{
-                position: "absolute",
-                backgroundColor: "var(--light-purple)",
-                padding: 10,
-                borderRadius: "1rem",
-                // width: "100%",
-              }}
-              // transition={{ duration: 0.5 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // transition={{ duration: 2.5 }}
             >
-              <div>
+              <div className="spc_img-div">
                 <motion.img
                   src={featuredCards[idx].image}
                   // animate={{ width: [300, 500] }}
                   // transition={{ duration: 1, ease: "easeInOut" }}
-                  width={"100%"}
                 />
+
+                <motion.button
+                  onClick={() => setClickedImage(false)}
+                  initial={{ opacity: 0.5 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  ❌
+                </motion.button>
+
+                <div className="spc_options-div">
+                  {featuredCards[idx].repo && (
+                    <a
+                      href={featuredCards[idx].repo}
+                      target="_blank "
+                      rel="noreferrer noopener"
+                    >
+                      <img src="/github-96.png" alt="github repository" />
+                    </a>
+                  )}
+
+                  {featuredCards[idx].webLink && (
+                    <a
+                      href={featuredCards[idx].webLink}
+                      target="_blank "
+                      rel="noreferrer noopener"
+                    >
+                      <img src="/link-96-black.png" alt="project link" />
+                    </a>
+                  )}
+                </div>
               </div>
-
-              {/* <motion.h1>{featuredCards[idx].name}</motion.h1> */}
-
-              {featuredCards[idx].repo && (
-                <a
-                  href={featuredCards[idx].repo}
-                  target="_blank "
-                  rel="noreferrer noopener"
-                >
-                  <img
-                    width={70}
-                    src="/icons/github.svg"
-                    alt="github repository"
-                  />
-                </a>
-              )}
-
-              {featuredCards[idx].webLink && (
-                <a
-                  href={featuredCards[idx].webLink}
-                  target="_blank "
-                  rel="noreferrer noopener"
-                >
-                  <img width={70} src="/icons/replit.svg" alt="web link" />
-                </a>
-              )}
-
-              <motion.button
-                onClick={() => setClickedImage(false)}
-                // style={{ alignSelf: "flex-end" }}
-              >
-                X
-              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
