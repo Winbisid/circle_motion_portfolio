@@ -75,48 +75,51 @@ export default function Projects() {
           {"👉"}
         </motion.button>
 
-        {/* <AnimatePresence> */}
-        {clickedImage && (
-          <motion.div
-            className="selected-project-card"
-            layoutId={`${featuredCards[idx].id}`}
-          >
-            <div className="spc_img-div">
-              <motion.img src={featuredCards[idx].image} />
+        <AnimatePresence>
+          {clickedImage && (
+            <motion.div
+              className="selected-project-card"
+              layoutId={`${featuredCards[idx].id}`}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // exit={{ opacity: 0 }}
+            >
+              <div className="spc_img-div">
+                <motion.img src={featuredCards[idx].image} />
 
-              <motion.button
-                onClick={() => setClickedImage(false)}
-                initial={{ opacity: 0.5 }}
-                whileHover={{ opacity: 1 }}
-              >
-                ❌
-              </motion.button>
+                <motion.button
+                  onClick={() => setClickedImage(false)}
+                  initial={{ opacity: 0.5 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  ❌
+                </motion.button>
 
-              <div className="spc_options-div">
-                {featuredCards[idx].repo && (
-                  <a
-                    href={featuredCards[idx].repo}
-                    target="_blank "
-                    rel="noreferrer noopener"
-                  >
-                    <img src="/github-96.png" alt="github repository" />
-                  </a>
-                )}
+                <div className="spc_options-div">
+                  {featuredCards[idx].repo && (
+                    <a
+                      href={featuredCards[idx].repo}
+                      target="_blank "
+                      rel="noreferrer noopener"
+                    >
+                      <img src="/github-96.png" alt="github repository" />
+                    </a>
+                  )}
 
-                {featuredCards[idx].webLink && (
-                  <a
-                    href={featuredCards[idx].webLink}
-                    target="_blank "
-                    rel="noreferrer noopener"
-                  >
-                    <img src="/link-96-black.png" alt="project link" />
-                  </a>
-                )}
+                  {featuredCards[idx].webLink && (
+                    <a
+                      href={featuredCards[idx].webLink}
+                      target="_blank "
+                      rel="noreferrer noopener"
+                    >
+                      <img src="/link-96-black.png" alt="project link" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-        {/* </AnimatePresence> */}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

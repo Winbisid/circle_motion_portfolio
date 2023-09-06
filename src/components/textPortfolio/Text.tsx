@@ -14,20 +14,6 @@ export default function Text() {
         <HeroBg />
         <Expertise />
         <Projects />
-        <div style={{ backgroundColor: "forestgreen" }}>
-          <h1 style={{ margin: 0 }}>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-          <h1>ONGOING</h1>
-        </div>
       </div>
     </>
   );
