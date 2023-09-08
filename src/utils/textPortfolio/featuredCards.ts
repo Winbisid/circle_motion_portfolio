@@ -12,7 +12,7 @@ const featuredCards = [
     name: "Next Meetups",
     image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png",
     languages: ["JavaScript", "React", "Next.js"],
-    repo: "https://github.com/winbisid/next_meetups",
+    repo: "https://github.com/winbisid/meetup",
     webLink: "https://meetup-sand.vercel.app",
   },
   {
