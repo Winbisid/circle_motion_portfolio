@@ -1,8 +1,8 @@
 const featuredCards = [
   {
     id: 1,
-    name: "Angus Young",
-    image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-angus.png",
+    name: "Daxxl",
+    image: "/project-images/3d-view-puzzle-pieces.jpg",
     languages: ["HTML", "CSS"],
     // webLink: "https://afrocoast233.com",
     // repo: "https://github.com/winbisid/...",
@@ -10,7 +10,8 @@ const featuredCards = [
   {
     id: 2,
     name: "Next Meetups",
-    image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png",
+    // image: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png",
+    image: "/project-images/web-agent.jpeg",
     languages: ["JavaScript", "React", "Next.js"],
     repo: "https://github.com/winbisid/meetup",
     webLink: "https://meetup-sand.vercel.app",
