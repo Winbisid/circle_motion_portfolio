@@ -15,6 +15,7 @@ export default function Text() {
         <HeroBg />
         <Expertise />
         <Projects />
+        <DoingNow />
       </div>
     </>
   );
