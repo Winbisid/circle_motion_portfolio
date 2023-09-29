@@ -1,13 +1,16 @@
 .project-card {
   min-width: 280px;
   width: 50vw;
-  height: 50vh;
+  /* height: 50vh; */
+  /* max-height: 75vh; */
   background-color: var(--light-purple);
   background-color: rgba(13, 13, 26, 0.3);
   background-color: rgba(13, 13, 26, 0.9);
   border-radius: 1.2rem;
   padding: 10px;
 
+  /* max-height: 78vh; */
+  /* max-height: 10%; */
   max-width: 500px;
 }
 

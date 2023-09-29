@@ -94,11 +94,11 @@ const expertiseIcons = [
     name: "Linux",
     source: "/icons/no-no-linux.svg",
   },
-  // {
-  //   id: 20,
-  //   name: "Kali Linux",
-  //   source: "/icons/kali-linux.svg",
-  // },
+  {
+    id: 20,
+    name: "Kali Linux",
+    source: "/icons/kali-linux.svg",
+  },
   // {
   //   id: 21,
   //   name: "Replit",
