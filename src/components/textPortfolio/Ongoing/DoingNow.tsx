@@ -1,4 +1,5 @@
 import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 export default function DoingNow() {
@@ -9,7 +10,7 @@ export default function DoingNow() {
         <pointLight position={[0, 0, 0]} />
         <mesh>
           <sphereGeometry />
-          <meshStandardMaterial color="#E1DC59" />
+          <meshStandardMaterial color="#FFD600" />
         </mesh>
       </Canvas>
     </div>
