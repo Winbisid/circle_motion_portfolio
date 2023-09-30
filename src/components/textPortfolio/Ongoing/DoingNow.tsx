@@ -6,6 +6,7 @@ export default function DoingNow() {
     <div className="ongoing">
       <Canvas>
         <ambientLight />
+        <pointLight position={[0, 0, 0]} />
         <mesh>
           <sphereGeometry />
           <meshStandardMaterial color="#E1DC59" />
