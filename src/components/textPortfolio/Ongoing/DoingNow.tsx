@@ -12,6 +12,7 @@ export default function DoingNow() {
           <sphereGeometry />
           <meshStandardMaterial color="#FFD600" />
         </mesh>
+        <OrbitControls />
       </Canvas>
     </div>
   );
