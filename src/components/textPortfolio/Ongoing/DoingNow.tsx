@@ -20,3 +20,12 @@ export default function DoingNow() {
     </div>
   );
 }
+
+function Sun() {
+  return (
+    <mesh>
+      <sphereGeometry args={[2.5, 32, 32]} />
+      <meshStandardMaterial color="#FFD600" />
+    </mesh>
+  );
+}
