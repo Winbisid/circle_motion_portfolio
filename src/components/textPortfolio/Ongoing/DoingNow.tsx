@@ -110,12 +110,6 @@ export default function DoingNow() {
         <Suspense fallback={null}>
           <Bounds fit clip observe margin={1.2}>
             <SelectToZoom>
-              {/* <Model
-                name="Curly"
-                position={[1, -11, -20]}
-                rotation={[2, 0, -0]}
-              /> */}
-              {/* <Model name="DNA" position={[20, 0, -17]} rotation={[1, 1, -2]} /> */}
               <Model
                 name="Headphones"
                 position={[20, 2, 4]}
@@ -131,30 +125,6 @@ export default function DoingNow() {
                 position={[18, 15, -25]}
                 rotation={[1, 1, 0]}
               />
-              {/* <Model
-                name="Roundcube001"
-                position={[-25, -4, 5]}
-                rotation={[1, 0, 0]}
-                scale={0.5}
-              /> */}
-              {/* <Model
-                name="Table"
-                position={[1, -4, -28]}
-                rotation={[1, 0, -1]}
-                scale={0.5}
-              /> */}
-              {/* <Model
-                name="VR_Headset"
-                position={[7, -15, 28]}
-                rotation={[1, 0, -1]}
-                scale={5}
-              /> */}
-              {/* <Model
-                name="Zeppelin"
-                position={[-20, 10, 10]}
-                rotation={[3, -1, 3]}
-                scale={0.005}
-              /> */}
             </SelectToZoom>
           </Bounds>
           <ContactShadows
@@ -185,6 +155,7 @@ function Model({ name, ...props }) {
       material={nodes[name].material}
       material-emissive="red"
       material-roughness={1}
+      // material-color={"green"}
       {...props}
       dispose={null}
     />
