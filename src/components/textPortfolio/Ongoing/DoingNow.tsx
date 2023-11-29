@@ -2,6 +2,7 @@
 // import { OrbitControls } from "@react-three/drei";
 // import planetData from "./planetData";
 // import * as THREE from "three";
+import "./DoingNow.css";
 
 // export default function DoingNow() {
 //   return (
@@ -81,6 +82,12 @@
 //     </line>
 //   );
 // }
+
+//index imports
+// import { Logo } from '@pmndrs/branding'
+// import { useRoute, useLocation } from "wouter";
+
+//
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -95,11 +102,46 @@ import {
 export default function DoingNow() {
   const [view3D, setView3D] = useState(false);
 
+  const [, params] = useRoute("/item/:id");
+  const [, setLocation] = useLocation();
+
   return (
-    <div className="ongoing">
+    <div className="ongoing" id="doing-now" style={{ position: "relative" }}>
       {/* <button onClick={() => setView3D(false)}>hide</button> */}
       {view3D ? (
-        <PortalApp setView3D={setView3D} />
+        <>
+          <PortalApp /*setView3D={setView3D}*/ />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            {/* <Logo style={{ position: 'absolute', bottom: 40, left: 40, width: 30 }} /> */}
+            <a
+              style={{
+                // position: "absolute",
+                // top: 40,
+                // left: 40,
+                // fontSize: "13px",
+                color: "red",
+              }}
+              href="#doing-now"
+              onClick={() => {
+                setLocation("/");
+                setView3D(false);
+                setTimeout(() => {
+                  history.replaceState({}, "", "/");
+                }, 0);
+              }}
+            >
+              {params ? "< back" : "double click to enter portal"}
+            </a>
+          </div>
+        </>
       ) : (
         // <CanvasView setView3D={setView3D} />
         <div onClick={() => setView3D(true)}>
@@ -223,13 +265,15 @@ const medium = import(
   "../../../assets/fonts/SplineSansMono-VariableFont_wght.ttf"
 );
 
-export const PortalApp = ({ setView3D }) => (
+export const PortalApp = (/*{ setView3D }*/) => (
   <Canvas
     camera={{ fov: 75, position: [0, 0, 20] }}
     eventSource={document.getElementById("root")}
     eventPrefix="client"
   >
-    <color attach="background" args={["#f0f0f0"]} />
+    {/* <color attach="background" args={["#050810"]} /> */}
+    <color attach="background" args={["#171e2f"]} />
+    {/* <color attach="background" args={["#f0f0f0"]} /> */}
     {/* <Frame
       id="01"
       name={`pick\nles`}
@@ -248,10 +292,7 @@ export const PortalApp = ({ setView3D }) => (
     <Frame id="02" name="model" author="" bg="#cf59e6">
       {/* <Gltf src="fiesta_tea-transformed.glb" position={[0, -2, -3]} /> */}
       <Gltf src="/compressed.glb" position={[0, -2, -3]} />
-      {/* automatically zooms in on text, skipping portal */}
-      {/* <Text onClick={() => setView3D(false)} position={[0, -2, -30]}>
-        exit
-      </Text> */}
+      {/* <CanvasView setView3D={() => console.log("")} /> */}
     </Frame>
     {/* <Frame
       id="03"
