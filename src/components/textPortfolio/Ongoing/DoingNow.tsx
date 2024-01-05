@@ -145,7 +145,8 @@ export default function DoingNow() {
       ) : (
         // <CanvasView setView3D={setView3D} />
         <div onClick={() => setView3D(true)}>
-          <h2>Click to 3D</h2>
+          {/* <h2>Click to 3D</h2> */}
+          <ClickTo3D />
         </div>
       )}
     </div>
@@ -269,7 +270,7 @@ export const PortalApp = (/*{ setView3D }*/) => (
   <Canvas
     camera={{ fov: 75, position: [0, 0, 20] }}
     eventSource={document.getElementById("root")}
-    eventPrefix="client"
+    // eventPrefix="client"
   >
     {/* <color attach="background" args={["#050810"]} /> */}
     <color attach="background" args={["#171e2f"]} />
@@ -291,8 +292,55 @@ export const PortalApp = (/*{ setView3D }*/) => (
     {/* <Frame id="02" name="tea" author="Omar Faruq Tawsif"> */}
     <Frame id="02" name="model" author="" bg="#cf59e6">
       {/* <Gltf src="fiesta_tea-transformed.glb" position={[0, -2, -3]} /> */}
-      <Gltf src="/compressed.glb" position={[0, -2, -3]} />
-      {/* <CanvasView setView3D={() => console.log("")} /> */}
+      {/* <Gltf src="/compressed.glb" position={[0, -2, -3]} /> */}
+      <spotLight
+        position={[-100, -100, -100]}
+        intensity={0.2}
+        angle={0.3}
+        penumbra={1}
+      />
+      <hemisphereLight
+        color="white"
+        groundColor="#ff0f00"
+        position={[-7, 25, 13]}
+        intensity={1}
+      />
+      <Suspense fallback={null}>
+        <Bounds margin={1.2}>
+          {/* <Bounds fit clip observe margin={1.2}> */}
+          {/* <SelectToZoom> */}
+          <Model
+            name="Headphones"
+            position={[20, 2, 4]}
+            rotation={[1, 0, -1]}
+          />
+          <Model
+            name="Notebook"
+            position={[-21, -15, -13]}
+            rotation={[2, 0, 1]}
+          />
+          <Model
+            name="Rocket003"
+            position={[18, 15, -25]}
+            rotation={[1, 1, 0]}
+          />
+          {/* </SelectToZoom> */}
+        </Bounds>
+        <ContactShadows
+          rotation-x={Math.PI / 2}
+          position={[0, -35, 0]}
+          opacity={0.2}
+          width={200}
+          height={200}
+          blur={1}
+          far={50}
+        />
+      </Suspense>
+      {/* <OrbitControls
+        makeDefault
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI / 1.75}
+      /> */}
     </Frame>
     {/* <Frame
       id="03"
@@ -382,6 +430,25 @@ function Frame({
     </group>
   );
 }
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// TRY TO INCORPORATE SelectToZoom INTO Frame COMPONENT ABOVE -> children etc. match
+// function SelectToZoom({ children }) {
+//   const api = useBounds();
+//   return (
+//     <group
+//       onClick={(e) => (
+//         e.stopPropagation(), e.delta <= 2 && api.refresh(e.object).fit()
+//       )}
+//       onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
+//     >
+//       {children}
+//       {/* <Text>exit</Text> */}
+//     </group>
+//   );
+// }
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function Rig({
   position = new THREE.Vector3(0, 0, 2),
@@ -407,3 +474,56 @@ function Rig({
 // https://codesandbox.io/s/btsbj?file=/src/App.js -> for change color on snap(select)
 // https://codesandbox.io/s/9m4tpc?file=/src/App.js -> portal
 // https://codesandbox.io/s/react-spring-animations-6hi1y?file=/src/Canvas.js -> spring animation could be for exit and enter - need only the scene
+
+import { motion } from "framer-motion";
+
+function ClickTo3D() {
+  const transitionValues = {
+    // duration: 0.8,
+    duration: 0.8,
+    yoyo: Infinity,
+    ease: "easeOut",
+  };
+
+  const ballStyle = {
+    display: "block",
+    width: "5rem",
+    height: "5rem",
+    // backgroundColor: "white",
+    backgroundColor: "#d309e1",
+    borderRadius: "5rem",
+    marginRight: "auto",
+    marginLeft: "auto",
+  };
+
+  return (
+    <motion.span
+      // {/* <h2>Click to 3D</h2> */}
+      style={ballStyle}
+      transition={{
+        y: transitionValues,
+        width: transitionValues,
+        height: transitionValues,
+      }}
+      animate={{
+        // y: ["2rem", "8rem", "10rem"],
+        // x: [null],
+        y: ["50rem", "8rem", "50rem"],
+        width: ["5rem", "5rem", "6rem"],
+        height: ["5rem", "5rem", "4rem"],
+      }}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 1 },
+      }}
+    >
+      <motion.span
+        initial={{ visibility: "hidden" }}
+        whileHover={{ visibility: "visible" }}
+        //implement visibility scaling from transparent to opaque
+      >
+        What's in here?
+      </motion.span>
+    </motion.span>
+  );
+}
