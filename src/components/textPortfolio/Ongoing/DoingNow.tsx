@@ -481,8 +481,10 @@ function ClickTo3D() {
   const transitionValues = {
     // duration: 0.8,
     duration: 0.8,
-    yoyo: Infinity,
+    // yoyo: Infinity,
+    // repeatType: "yoyo",
     ease: "easeOut",
+    // repeat: Infinity,
   };
 
   const ballStyle = {
@@ -504,6 +506,7 @@ function ClickTo3D() {
         y: transitionValues,
         width: transitionValues,
         height: transitionValues,
+        // repeat: Infinity,
       }}
       animate={{
         // y: ["2rem", "8rem", "10rem"],
@@ -511,18 +514,44 @@ function ClickTo3D() {
         y: ["50rem", "8rem", "50rem"],
         width: ["5rem", "5rem", "6rem"],
         height: ["5rem", "5rem", "4rem"],
+        //
+        // scale: [1, 2, 2, 1, 1],
       }}
       whileHover={{
         scale: 1.2,
-        transition: { duration: 1 },
+        transition: {
+          duration: 1,
+          ease: [0, 0.71, 0.2, 1.01],
+          scale: {
+            type: "spring",
+            damping: 5,
+            stiffness: 100,
+            restDelta: 0.001,
+          },
+          //
+          // times: [0, 0.2, 0.5, 0.8, 1],
+          // repeat: Infinity,
+          // repeatDelay: 1,
+        },
+        //
+        // borderRadius: ["10%", "10%", "50%", "50%", "10%"],
+        // borderRadius: ["10%", "10%", "5rem", "5rem", "10%"],
+        // rotate: [0, 0, 180, 180, 0],
       }}
+      whileTap={{ scale: 0.9 }}
     >
       <motion.span
-        initial={{ visibility: "hidden" }}
-        whileHover={{ visibility: "visible" }}
-        //implement visibility scaling from transparent to opaque
+        // initial={{ visibility: "hidden" }}
+        // whileHover={{ visibility: "visible" }}
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        style={{
+          display: "flex",
+          textAlign: "center",
+          fontSize: 14,
+        }}
       >
-        What's in here?
+        <p>What's in here?</p>
       </motion.span>
     </motion.span>
   );
