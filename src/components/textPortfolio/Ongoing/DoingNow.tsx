@@ -269,7 +269,7 @@ const medium = import(
 export const PortalApp = (/*{ setView3D }*/) => (
   <Canvas
     camera={{ fov: 75, position: [0, 0, 20] }}
-    eventSource={document.getElementById("root")}
+    eventSource={document.getElementById("root") as HTMLElement}
     // eventPrefix="client"
   >
     {/* <color attach="background" args={["#050810"]} /> */}
@@ -457,9 +457,9 @@ function Rig({
   const { controls, scene } = useThree();
   const [, params] = useRoute("/item/:id");
   useEffect(() => {
-    const active = scene.getObjectByName(params?.id);
+    const active = scene.getObjectByName(params?.id!);
     if (active) {
-      active.parent.localToWorld(position.set(0, 0.5, 0.25));
+      active.parent!.localToWorld(position.set(0, 0.5, 0.25));
       active.parent.localToWorld(focus.set(0, 0, -2));
     }
     controls?.setLookAt(...position.toArray(), ...focus.toArray(), true);
@@ -480,11 +480,11 @@ import { motion } from "framer-motion";
 function ClickTo3D() {
   const transitionValues = {
     // duration: 0.8,
-    duration: 0.8,
+    duration: 10,
     // yoyo: Infinity,
     // repeatType: "yoyo",
     ease: "easeOut",
-    // repeat: Infinity,
+    repeat: Infinity, // bounce
   };
 
   const ballStyle = {
@@ -498,15 +498,22 @@ function ClickTo3D() {
     marginLeft: "auto",
   };
 
+  // drag
+  // //   drag="x"
+  // dragConstraints={{ top: 50, left: 100, bottom: 50, right: 200 }}
+  // animate={{ x: [0, 200, 0], y: [0, 50, 200, 0] }}
+
   return (
     <motion.span
       // {/* <h2>Click to 3D</h2> */}
+      // drag
       style={ballStyle}
       transition={{
         y: transitionValues,
         width: transitionValues,
         height: transitionValues,
         // repeat: Infinity,
+        x: transitionValues,
       }}
       animate={{
         // y: ["2rem", "8rem", "10rem"],
@@ -515,6 +522,11 @@ function ClickTo3D() {
         width: ["5rem", "5rem", "6rem"],
         height: ["5rem", "5rem", "4rem"],
         //
+        // x: [0, 500, 0],
+        x: [0, 200, 0, -200, 0],
+        // x: [0, 200, -200, 0, 200, -200, 0],
+        // x: [0, 200, -200, 0, 200, -200, 0, 200, -200, 0, 0, 0, 0, 0, 0],
+        // x: [0, 190, -20, 0, 170, -60, 0, 80, -130, 0, 0, 0, 0, 0],
         // scale: [1, 2, 2, 1, 1],
       }}
       whileHover={{
@@ -533,6 +545,7 @@ function ClickTo3D() {
           // repeat: Infinity,
           // repeatDelay: 1,
         },
+        // animation: "paused", // pause bouncing ball when hovering, continue on hover end. that's the idea.
         //
         // borderRadius: ["10%", "10%", "50%", "50%", "10%"],
         // borderRadius: ["10%", "10%", "5rem", "5rem", "10%"],
@@ -552,6 +565,7 @@ function ClickTo3D() {
         }}
       >
         <p>What's in here?</p>
+        {/* <p>?</p> */}
       </motion.span>
     </motion.span>
   );
