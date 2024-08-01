@@ -5,6 +5,7 @@ import "./Text.css";
 import Expertise from "./expertise/Expertise";
 import Projects from "./projects/Projects";
 import DoingNow from "./Ongoing/DoingNow";
+import Contact from "./contact/Contact";
 
 export default function Text() {
   return (
@@ -15,7 +16,8 @@ export default function Text() {
         <HeroBg />
         <Expertise />
         <Projects />
-        <DoingNow />
+        {/* <DoingNow /> */}
+        <Contact />
       </div>
     </>
   );

@@ -14,7 +14,7 @@ function App() {
           <Text />
         </>
       )}
-      <Footer isWheel={isWheel} />
+      {/* <Footer isWheel={isWheel} /> */}
     </div>
   );
 }

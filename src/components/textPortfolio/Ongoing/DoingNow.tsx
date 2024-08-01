@@ -230,6 +230,16 @@ function Model({ name, ...props }) {
 // Clicking any object will refresh and fit bounds
 function SelectToZoom({ children }) {
   const api = useBounds();
+
+  // const interpolateFunc = (t: number) => 1 - Math.exp(-5 * t) + 0.007 * t;
+  // const interpolateFunc1 = (t: number) => -t * t * t + 2 * t * t; // Start smoothly, finish linearly
+  // const interpolateFunc2 = (t: number) => -t * t * t + t * t + t; // Start linearly, finish smoothly
+
+  useEffect(() => {
+    api.refresh().clip().fit();
+    // api.refresh().reset().clip().fit();
+  }, []);
+
   return (
     <group
       onClick={(e) => (
@@ -306,25 +316,25 @@ export const PortalApp = (/*{ setView3D }*/) => (
         intensity={1}
       />
       <Suspense fallback={null}>
-        <Bounds margin={1.2}>
+        <Bounds fit clip observe margin={1.2}>
           {/* <Bounds fit clip observe margin={1.2}> */}
-          {/* <SelectToZoom> */}
-          <Model
-            name="Headphones"
-            position={[20, 2, 4]}
-            rotation={[1, 0, -1]}
-          />
-          <Model
-            name="Notebook"
-            position={[-21, -15, -13]}
-            rotation={[2, 0, 1]}
-          />
-          <Model
-            name="Rocket003"
-            position={[18, 15, -25]}
-            rotation={[1, 1, 0]}
-          />
-          {/* </SelectToZoom> */}
+          <SelectToZoom>
+            <Model
+              name="Headphones"
+              position={[20, 2, 4]}
+              rotation={[1, 0, -1]}
+            />
+            <Model
+              name="Notebook"
+              position={[-21, -15, -13]}
+              rotation={[2, 0, 1]}
+            />
+            <Model
+              name="Rocket003"
+              position={[18, 15, -25]}
+              rotation={[1, 1, 0]}
+            />
+          </SelectToZoom>
         </Bounds>
         <ContactShadows
           rotation-x={Math.PI / 2}
@@ -336,11 +346,11 @@ export const PortalApp = (/*{ setView3D }*/) => (
           far={50}
         />
       </Suspense>
-      {/* <OrbitControls
+      <OrbitControls
         makeDefault
         minPolarAngle={0}
         maxPolarAngle={Math.PI / 1.75}
-      /> */}
+      />
     </Frame>
     {/* <Frame
       id="03"
