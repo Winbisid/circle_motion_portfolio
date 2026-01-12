@@ -30,24 +30,18 @@ export default function Projects() {
   }
 
   return (
-    <div className="projects">
+    <div className="projects" id="projects">
       <div className="margin-wrapper">
-        <h1 className="heading">PROJECTS</h1>
-        {/* <p className="string-text">
-          They say even the trickiest bugs tremble under the fingertips of this
-          developer. Armed with a serious dose of wit and puzzling prowess, this
-          programmer cultivates inventive solutions with ease.
-        </p> */}
+        <h1 className="heading">Projects</h1>
         <p className="string-text">
-          Venture into the labyrinth of featured projects to discover
-          mind-bending programming adventures. From solving intricate code
-          conundrums to architecting digital marvels, unravel the mysteries
-          behind these awe-inducing creations.
+          A handful of recent builds—from playful visuals to product flows. Each
+          ships with clean handoff, solid accessibility, and fast interactions.
         </p>
       </div>
 
       <div className="projects-wrapper">
         <motion.button
+          aria-label="Previous project"
           onClick={switchCardLeft}
           initial={{ opacity: 0.5 }}
           whileHover={{ opacity: 1 }}
@@ -55,19 +49,25 @@ export default function Projects() {
           {"👈"}
         </motion.button>
 
-        <motion.div
-          animate={{ opacity: clickedImage ? 0 : 1 }}
-          transition={{ duration: 1 }}
-          style={{ pointerEvents: clickedImage ? "none" : "auto" }}
-        >
-          <ProjectCard
-            project={featuredCards[idx]}
-            clickDir={clickRight}
-            setClickedImage={setClickedImage}
-          />
-        </motion.div>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={featuredCards[idx].id}
+            initial={{ x: clickRight ? 80 : -80, opacity: 0 }}
+            animate={{ x: 0, opacity: clickedImage ? 0 : 1 }}
+            exit={{ x: clickRight ? -80 : 80, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 140, damping: 18 }}
+            style={{ pointerEvents: clickedImage ? "none" : "auto" }}
+          >
+            <ProjectCard
+              project={featuredCards[idx]}
+              clickDir={clickRight}
+              setClickedImage={setClickedImage}
+            />
+          </motion.div>
+        </AnimatePresence>
 
         <motion.button
+          aria-label="Next project"
           onClick={switchCardRight}
           initial={{ opacity: 0.5 }}
           whileHover={{ opacity: 1 }}
@@ -80,9 +80,6 @@ export default function Projects() {
             <motion.div
               className="selected-project-card"
               layoutId={`${featuredCards[idx].id}`}
-              // initial={{ opacity: 0 }}
-              // animate={{ opacity: 1 }}
-              // exit={{ opacity: 0 }}
             >
               <div className="spc_img-div">
                 <motion.img src={featuredCards[idx].image} />
@@ -91,6 +88,7 @@ export default function Projects() {
                   onClick={() => setClickedImage(false)}
                   initial={{ opacity: 0.5 }}
                   whileHover={{ opacity: 1 }}
+                  aria-label="Close project preview"
                 >
                   ❌
                 </motion.button>

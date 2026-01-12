@@ -7,6 +7,8 @@ interface CardInterface {
   name: string;
   image: string;
   languages: string[];
+  role?: string;
+  outcome?: string;
 }
 
 export default function ProjectCard({
@@ -18,7 +20,7 @@ export default function ProjectCard({
   clickDir: true | false;
   setClickedImage: any;
 }) {
-  const { name, image, languages } = project;
+  const { name, image, languages, role, outcome } = project;
 
   return (
     <div className="project-card">
@@ -66,6 +68,23 @@ export default function ProjectCard({
           </motion.p>
         ))}
       </div>
+
+      {(role || outcome) && (
+        <div className="case-notes">
+          {role && (
+            <div>
+              <p className="case-label">Role</p>
+              <p className="case-text">{role}</p>
+            </div>
+          )}
+          {outcome && (
+            <div>
+              <p className="case-label">Outcome</p>
+              <p className="case-text">{outcome}</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

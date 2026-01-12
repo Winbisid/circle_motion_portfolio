@@ -1,43 +1,29 @@
 import "./Nav.css";
-import reactLogo from "../../../assets/react.svg";
+
+interface NavLink {
+  id: string;
+  label: string;
+}
 
 export default function Nav() {
-  const options = ["Home", "Expertise", "Projects", "Doing|Now", "Contact"];
+  const options: NavLink[] = [
+    { id: "home", label: "Home" },
+    { id: "expertise", label: "Expertise" },
+    { id: "showcase", label: "Showcase" },
+    { id: "projects", label: "Projects" },
+    { id: "doing-now", label: "Doing Now" },
+    { id: "contact", label: "Contact" },
+  ];
+
   return (
     <nav id="top-menu">
       <ul>
         {options.map((item) => (
-          <Option
-            key={item}
-            name={item}
-            // name={item.toUpperCase()}
-            // name={`\\ \\ ${item} / /`}
-          />
+          <li key={item.id}>
+            <a href={`#${item.id}`}>{item.label}</a>
+          </li>
         ))}
       </ul>
-      {/* <ul
-        id="nav-switch"
-        style={{
-          display: "none",
-          alignItems: "center",
-          padding: "15px",
-          // visibility: "hidden",
-        }}
-      >
-        <img src={reactLogo} width={"20"} />
-      </ul> */}
     </nav>
-  );
-}
-
-interface OptionProps {
-  name: string;
-}
-
-function Option({ name }: OptionProps) {
-  return (
-    <li>
-      <a>{name}</a>
-    </li>
   );
 }

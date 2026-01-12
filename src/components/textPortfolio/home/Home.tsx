@@ -1,51 +1,103 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 import "./Home.css";
 import Nav from "../nav/Nav";
 
 export default function Home() {
+  const [hoveringAvatar, setHoveringAvatar] = useState(false);
+  const controls = useAnimation();
+  const messages = useMemo(
+    () => [
+      "Ship fast, profile later.",
+      "Threat model early—save rewrites.",
+      "Perf matters: measure, don’t guess.",
+      "DX is UX for builders.",
+      "Accessibility is a feature, not a chore.",
+    ],
+    []
+  );
+  const [messageIdx, setMessageIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setMessageIdx((prev) => (prev + 1) % messages.length);
+    }, 6500);
+    return () => clearInterval(id);
+  }, [messages.length]);
+
+  useEffect(() => {
+    if (!hoveringAvatar) {
+      controls.start({
+        x: [0, 14, -12, 0],
+        y: [0, -16, 10, 0],
+        transition: { duration: 10, repeat: Infinity, ease: "easeInOut" },
+      });
+    } else {
+      controls.stop();
+    }
+  }, [controls, hoveringAvatar]);
+
   return (
-    <div className="home">
+    <div className="home" id="home">
       <Nav />
-      <div className="margin-wrapper">
-        <div id="image">
-          <motion.img
-            src="/developer-arcade-96.png"
-            drag
-            //   drag="x"
-            dragConstraints={{ top: 50, left: 100, bottom: 50, right: 200 }}
-            animate={{ x: [0, 200, 0], y: [0, 50, 200, 0] }}
-            transition={{
-              duration: 10,
-              repeat: 999999999999999,
-              ease: "easeInOut",
-            }}
-            //   dragSnapToOrigin={true}
-          />
-        </div>
 
-        <div id="name">
-          <h1>Winbisid.</h1>
-        </div>
+      <div className="hero">
+        <div className="margin-wrapper hero__content">
+          <div className="hero__copy">
+            <p className="eyebrow">Frontend engineer • Creative coder</p>
+            <h1>Winbisid.</h1>
+            <p className="lede">
+              I build playful, performant interfaces that feel intentional—from
+              motion-rich landing pages to product dashboards that stay snappy
+              under load.
+            </p>
+            <div className="hero__cta">
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                className="cta primary"
+              >
+                View projects
+              </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                className="cta ghost"
+              >
+                Get in touch
+              </motion.a>
+            </div>
+          </div>
 
-        <div id="intro">
-          {/* <p>
-          Passionate and driven self-taught developer with a strong foundation
-          in web and software development. Adept at transforming innovative
-          ideas into functional, user-friendly applications through a
-          combination of self-guided learning and hands-on project experience.
-        </p> */}
-          <p>
-            With each stroke of the keyboard, I craft impeccable code, seemingly
-            cryptic to the untrained eye. My skills in web development, design
-            and problem-solving set me apart from the rest.
-          </p>
-          {/* <p>
-          Committed to continuous learning and staying updated with industry
-          trends to deliver high-quality solutions. Known for problem-solving
-          prowess, adaptability, and a collaborative approach that fosters team
-          success. Eager to contribute technical expertise and creativity to a
-          dynamic development team.
-        </p> */}
+          <div className="hero__visual">
+            <motion.div
+              className="avatar-wrap"
+              drag
+              dragConstraints={{ top: 40, left: -40, bottom: 40, right: 40 }}
+              animate={controls}
+              whileHover={{ scale: 1.02 }}
+              onHoverStart={() => setHoveringAvatar(true)}
+              onHoverEnd={() => setHoveringAvatar(false)}
+            >
+              <motion.img
+                src="/developer-arcade-96.png"
+                alt="Retro developer avatar"
+                draggable={false}
+                transition={{ type: "spring", stiffness: 140, damping: 14 }}
+              />
+              <motion.div
+                key={messageIdx}
+                className="thought-bubble"
+                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <span className="bubble-text">{messages[messageIdx]}</span>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>

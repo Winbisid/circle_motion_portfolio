@@ -27,6 +27,12 @@ h1 {
   font-family: "Limelight", cursive;
 }
 
+.heading {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin: 8px 0 12px;
+}
+
 .app {
   /* display: flex;
   flex-direction: column; */

@@ -21,19 +21,19 @@
   }
 } */
 
-.heading {
-  font-size: 5rem;
+.projects .heading {
+  font-size: clamp(3.2rem, 6vw, 4.6rem);
   letter-spacing: -0.03em;
   margin: 0px;
 }
 
 @media only screen and (max-width: 56.25em) {
-  .heading {
+  .projects .heading {
     font-size: 4.25rem;
   }
 }
 @media only screen and (max-width: 37.5em) {
-  .heading {
+  .projects .heading {
     font-size: 3.5rem;
   }
 }
@@ -59,13 +59,18 @@
   /* height: 55%; */
   flex: 1;
   position: relative;
+  gap: 24px;
 
   & button {
     background-color: rgb(127, 255, 212);
     border-radius: 50%;
     border: 0px;
     /* padding: 15px; */
-    padding: 2.5%;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    padding: 0;
     margin: 0 auto;
     overflow-x: hidden;
     font-size: 1.5rem;
