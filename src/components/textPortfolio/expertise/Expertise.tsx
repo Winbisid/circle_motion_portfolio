@@ -8,10 +8,10 @@ interface Icons {
 }
 
 const highlights = [
-  "Design-to-dev systems",
-  "Motion and micro-interactions",
-  "Accessible, performant frontends",
-  "API-driven product work",
+  "Network & security engineering",
+  "Infra & automation (k8s, cloud, Pi lab)",
+  "Creative coding & 3D UI",
+  "Full stack product delivery",
 ];
 
 const stacks = ["TypeScript", "React", "Vite", "Three.js", "Node", "Postgres"];
@@ -24,11 +24,9 @@ export default function Expertise() {
           <div className="margin-wrapper expertise__header">
             <div>
               <p className="eyebrow">Expertise</p>
-              <h2 className="heading">From playful UI to robust delivery.</h2>
+              <h2 className="heading">From secure infra to creative code.</h2>
               <p className="paragraph">
-                I pair interaction design with solid engineering—shipping
-                interfaces that animate smoothly, stay readable, and perform
-                under real-world traffic.
+                I blend hands-on security, network engineering, and automation with creative coding and product thinking. My builds span resilient infra, playful UIs, and full stack systems that scale and delight.
               </p>
               <div className="chip-row">
                 {highlights.map((item) => (

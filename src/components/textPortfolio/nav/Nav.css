@@ -1,21 +1,38 @@
 #top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
   display: flex;
   font-weight: 600;
   justify-content: center;
+  padding: 8px 12px;
+  pointer-events: none;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.32s ease, opacity 0.32s ease;
 }
 
 #top-menu ul {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   background-attachment: scroll;
-  background-color: hsla(270, 50%, 10%, 0.5);
-  /* background-color: rgba(42, 43, 56, 0.1); */
-  border-color: rgb(42, 43, 55);
+  background-color: hsla(270, 50%, 10%, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  border-style: solid;
-  border-width: 1px;
   padding: 20px 40px;
   gap: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  pointer-events: auto;
+}
+
+#top-menu.nav-hidden {
+  transform: translateY(-120%);
+  opacity: 0;
 }
 
 #top-menu ul li {
@@ -28,6 +45,7 @@
 
 #top-menu a {
   color: var(--dark-blue);
+  transition: color 0.25s ease;
 }
 
 #top-menu a:hover {

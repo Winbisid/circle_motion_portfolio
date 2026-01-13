@@ -1,0 +1,412 @@
+/* Oldschool theme styles */
+.theme-oldschool .resume-console {
+  background: #111;
+  color: #00ff00;
+  font-family: 'VT323', 'Share Tech Mono', 'Courier New', monospace;
+  border: 4px solid #00ff00;
+  box-shadow: 0 0 32px #00ff00, 0 0 8px #222 inset;
+  border-radius: 0;
+  text-shadow: 0 0 2px #00ff00, 0 0 8px #00ff00;
+}
+
+.theme-oldschool .crt-glow,
+.theme-oldschool .crt-scan {
+  opacity: 0.7;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,255,0,0.08) 0px,
+    rgba(0,255,0,0.04) 2px,
+    transparent 4px,
+    transparent 8px
+  );
+  mix-blend-mode: screen;
+}
+
+.theme-oldschool .top-bar {
+  background: #222;
+  border-bottom: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+.theme-oldschool .pill {
+  background: #111;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: 15px;
+  margin-right: 8px;
+  text-shadow: 0 0 2px #00ff00;
+}
+
+.theme-oldschool .intro .badge {
+  background: #222;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: inherit;
+}
+
+.theme-oldschool .history {
+  background: #111;
+  color: #00ff00;
+  font-family: inherit;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  box-shadow: 0 0 8px #00ff00 inset;
+}
+
+.theme-oldschool .history-entry .prompt-line {
+  color: #00ff00;
+}
+
+.theme-oldschool .output {
+  color: #00ff00;
+  font-family: inherit;
+}
+
+.theme-oldschool .input-row {
+  background: #222;
+  border-top: 2px solid #00ff00;
+}
+
+.theme-oldschool .input-row input {
+  background: #111;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  font-family: inherit;
+  font-size: 16px;
+  text-shadow: 0 0 2px #00ff00;
+}
+
+.theme-oldschool .input-row input:focus {
+  border-color: #00ff00;
+  box-shadow: 0 0 0 2px #00ff00;
+}
+
+.theme-oldschool .oldschool-gamify {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+.theme-oldschool .achievements ul,
+.theme-oldschool .missions ul {
+  list-style: square inside;
+  margin: 0;
+  padding: 0 0 0 12px;
+}
+.theme-oldschool .achievements strong,
+.theme-oldschool .missions strong {
+  color: #00ff00;
+  text-shadow: 0 0 2px #00ff00;
+}
+.resume-shell {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(111, 200, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 80% 10%, rgba(202, 169, 74, 0.12), transparent 30%),
+    linear-gradient(135deg, #05040a, #0b0a14 50%, #05040a 100%);
+  color: #e9f1ff;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  font-family: "SplineSansMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  overflow: hidden;
+}
+
+.resume-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.06), transparent 32%);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.resume-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 35%);
+  mix-blend-mode: soft-light;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.resume-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 20%, rgba(124, 124, 255, 0.08), transparent 40%);
+  mix-blend-mode: screen;
+}
+
+.resume-console {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 11, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.42);
+  border-radius: 14px;
+  padding: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  z-index: 1;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-console::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 12px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.crt-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 3px,
+      transparent 4px
+    ),
+    linear-gradient(120deg, rgba(107, 197, 248, 0.08), rgba(207, 89, 230, 0.06));
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  animation: crt-roll 8s linear infinite;
+  border-radius: 12px;
+}
+
+.crt-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 16px;
+  box-shadow: 0 0 22px rgba(107, 197, 248, 0.16), 0 0 34px rgba(207, 89, 230, 0.12);
+  pointer-events: none;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.theme-mono .resume-console {
+  background: rgba(8, 8, 8, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.intro .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(107, 197, 248, 0.12);
+  border: 1px solid rgba(107, 197, 248, 0.35);
+  color: #bde6ff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+}
+
+.intro h1 {
+  margin: 10px 0 4px;
+  font-size: clamp(28px, 4vw, 36px);
+  letter-spacing: -0.02em;
+}
+
+.intro p {
+  margin: 0;
+  color: rgba(233, 241, 255, 0.8);
+}
+
+.hints {
+  margin-top: 10px;
+  color: rgba(233, 241, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(233, 241, 255, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.history::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.history {
+  scrollbar-width: none;
+}
+
+.history-entry .prompt-line {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.history-entry.system .prompt {
+  color: #f39237;
+}
+
+.history-entry.system .command {
+  color: rgba(233, 241, 255, 0.82);
+}
+
+.prompt {
+  color: #6bc5f8;
+  font-weight: 700;
+}
+
+.command {
+  color: #e9f1ff;
+  text-shadow: 0 0 6px rgba(107, 197, 248, 0.35);
+}
+
+.output {
+  margin-left: 12px;
+  margin-top: 4px;
+  color: rgba(233, 241, 255, 0.86);
+  line-height: 1.5;
+}
+
+.output::selection,
+.command::selection,
+.prompt::selection {
+  background: rgba(107, 197, 248, 0.35);
+  color: #0b0a14;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 18, 0.01), rgba(10, 10, 18, 0.92));
+  padding-top: 10px;
+}
+
+.input-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107, 197, 248, 0.35), transparent);
+  opacity: 0.6;
+}
+
+.input-row input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #e9f1ff;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.input-row input:focus {
+  border-color: rgba(107, 197, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(107, 197, 248, 0.18);
+}
+
+.theme-mono .input-row input:focus {
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 600px) {
+  .resume-shell {
+    padding: 20px 12px;
+  }
+
+  .resume-console {
+    max-height: calc(100vh - 40px);
+    padding: 16px;
+  }
+
+  .input-row input {
+    font-size: 14px;
+  }
+}
+
+.line-anim {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: typefade 0.38s ease forwards;
+}
+
+@keyframes typefade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes crt-roll {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 100px, 0 0;
+  }
+}

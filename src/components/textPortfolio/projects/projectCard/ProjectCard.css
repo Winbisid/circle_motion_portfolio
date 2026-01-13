@@ -1,6 +1,6 @@
 .project-card {
   width: min(520px, 90vw);
-  background-color: rgba(13, 13, 26, 0.9);
+  background: linear-gradient(155deg, var(--card), rgba(11, 8, 18, 0.94));
   border-radius: 1.2rem;
   padding: 16px;
   display: flex;
@@ -8,8 +8,9 @@
   gap: 12px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(176, 132, 247, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3),
+    0 4px 18px rgba(245, 197, 86, 0.1);
   transition: transform 200ms ease, box-shadow 200ms ease,
     border-color 200ms ease;
 }
@@ -22,6 +23,7 @@
   background:
     radial-gradient(circle at 18% 20%, rgba(130, 105, 255, 0.18), transparent 45%),
     radial-gradient(circle at 82% 0%, rgba(104, 220, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(245, 197, 86, 0.16), transparent 38%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
   opacity: 0;
   transition: opacity 200ms ease;
@@ -45,8 +47,9 @@
   margin: 10px;
   margin-left: 0;
   margin-top: 0;
-  color: #e8f0ff;
-  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  color: #f6dba4;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35),
+    0 4px 18px rgba(245, 197, 86, 0.25);
 }
 
 .languages-div {
@@ -104,8 +107,9 @@
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(130, 105, 255, 0.25);
-  border-color: rgba(130, 105, 255, 0.3);
+    0 0 0 1px rgba(130, 105, 255, 0.28),
+    0 10px 32px rgba(245, 197, 86, 0.18);
+  border-color: rgba(130, 105, 255, 0.32);
 }
 
 .project-card:hover::after {

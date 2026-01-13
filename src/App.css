@@ -10,11 +10,23 @@
 }
 
 body {
-  --light-purple: #cf59e6;
+  --ink: #08070f;
+  --bg-1: #0c0a16;
+  --bg-2: #120d23;
+  --card: rgba(16, 12, 26, 0.92);
+  --surface: rgba(11, 9, 18, 0.88);
+  --accent-purple: #9d7aec;
+  --accent-purple-strong: #7a51e2;
+  --accent-gold: #caa94a;
+  --accent-gold-deep: #8a6a12;
+  --frost: #e9f1ff;
+  --muted: rgba(233, 241, 255, 0.78);
+  --stroke: rgba(255, 255, 255, 0.12);
+  --light-purple: var(--accent-purple);
   --light-blue: #6bc5f8;
   --dark-blue: #0e79b2;
-  --light-gold: #f39237;
-  --dark-gold: #d16b0d;
+  --light-gold: var(--accent-gold);
+  --dark-gold: var(--accent-gold-deep);
   --light-pink: #f94144;
   --dark-pink: #f8282c;
   --large-header: 80px;

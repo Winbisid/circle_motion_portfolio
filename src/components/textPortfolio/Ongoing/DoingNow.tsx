@@ -11,16 +11,20 @@ const nowItems = [
     detail: "Testing low-cost framer-motion patterns that read well on mobile.",
   },
   {
-    title: "Writing case notes",
-    detail: "Drafting concise blurbs for recent builds to pair with the carousel.",
+    title: "Blanksy",
+    detail: "A platform for creator expression and community building (more soon!).",
   },
+  {
+    title: "Open source contributions",
+    detail: "Currently working on Omnivore app improvements and feature additions.",
+  }
 ];
 
 export default function DoingNow() {
   return (
     <div className="ongoing" id="doing-now">
       <div className="margin-wrapper">
-        <p className="eyebrow">Now</p>
+        <p className="eyebrow">Doing|Now</p>
         <h2 className="heading">Currently in motion</h2>
         <div className="now-grid">
           {nowItems.map((item) => (

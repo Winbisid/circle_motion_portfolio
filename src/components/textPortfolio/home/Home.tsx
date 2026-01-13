@@ -1,9 +1,8 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { forwardRef, useEffect, useMemo, useState, type ReactNode } from "react";
 import "./Home.css";
-import Nav from "../nav/Nav";
 
-export default function Home() {
+const Home = forwardRef<HTMLDivElement, { children?: ReactNode }>(({ children }, ref) => {
   const [hoveringAvatar, setHoveringAvatar] = useState(false);
   const controls = useAnimation();
   const messages = useMemo(
@@ -38,18 +37,15 @@ export default function Home() {
   }, [controls, hoveringAvatar]);
 
   return (
-    <div className="home" id="home">
-      <Nav />
-
+    <div className="home" id="home" ref={ref}>
+      {children}
       <div className="hero">
         <div className="margin-wrapper hero__content">
           <div className="hero__copy">
-            <p className="eyebrow">Frontend engineer • Creative coder</p>
+            <p className="eyebrow">Network & security engineer • Full stack dev</p>
             <h1>Winbisid.</h1>
             <p className="lede">
-              I build playful, performant interfaces that feel intentional—from
-              motion-rich landing pages to product dashboards that stay snappy
-              under load.
+              I design and build secure, resilient systems—from playful, motion-rich UIs to robust infra and networked products. My work blends creative coding, full stack engineering, and hands-on security for experiences that are both delightful and dependable.
             </p>
             <div className="hero__cta">
               <motion.a
@@ -102,4 +98,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+});
+
+export default Home;

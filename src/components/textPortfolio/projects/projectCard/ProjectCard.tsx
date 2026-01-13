@@ -50,23 +50,26 @@ export default function ProjectCard({
       </div>
 
       <div className="languages-div">
-        {languages.map((language: string) => (
-          <motion.p
-            style={{
-              backgroundColor: `${colors[language as keyof typeof colors][0]}`,
-              color:
-                colors[language as keyof typeof colors][1] == "dark"
-                  ? "rgba(0,0,0,0.7)"
-                  : "rgba(255,255,255,0.7)",
-            }}
-            key={language}
-            initial={{ y: 200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -200, opacity: 0 }}
-          >
-            {language}
-          </motion.p>
-        ))}
+        {languages.map((language: string) => {
+          const colorEntry = colors[language as keyof typeof colors] || ["#888", "light"];
+          return (
+            <motion.p
+              style={{
+                backgroundColor: colorEntry[0],
+                color:
+                  colorEntry[1] == "dark"
+                    ? "rgba(0,0,0,0.7)"
+                    : "rgba(255,255,255,0.7)",
+              }}
+              key={language}
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -200, opacity: 0 }}
+            >
+              {language}
+            </motion.p>
+          );
+        })}
       </div>
 
       {(role || outcome) && (

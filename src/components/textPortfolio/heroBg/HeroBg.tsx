@@ -5,7 +5,7 @@ export default function HeroBg() {
     <div className="hero-bg">
       <div className="margin-wrapper">
         <div id="hero-text">
-          <h1>Witness the craft, experience the artistry.</h1>
+          <h1>Build with zero trust, defend with vision.</h1>
         </div>
       </div>
     </div>
