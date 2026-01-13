@@ -14,13 +14,19 @@ export default function Contact() {
     const [adjIdx, setAdjIdx] = useState(0);
 
     useEffect(() => {
-        // Alternate: verb changes at 5s, then adj at 5s, etc.
+        // Alternate: verb changes at 5s, then adj at 5s, etc. Loop smoothly with no gap.
         let toggle = true;
         const timer = setInterval(() => {
             if (toggle) {
-                setVerbIdx((v) => (v + 1) % verbs.length);
+                setVerbIdx((v) => {
+                    if (v + 1 >= verbs.length) return 0;
+                    return v + 1;
+                });
             } else {
-                setAdjIdx((a) => (a + 1) % adjectives.length);
+                setAdjIdx((a) => {
+                    if (a + 1 >= adjectives.length) return 0;
+                    return a + 1;
+                });
             }
             toggle = !toggle;
         }, 5000);

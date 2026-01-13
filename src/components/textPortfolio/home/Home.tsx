@@ -42,10 +42,10 @@ const Home = forwardRef<HTMLDivElement, { children?: ReactNode }>(({ children },
       <div className="hero">
         <div className="margin-wrapper hero__content">
           <div className="hero__copy">
-            <p className="eyebrow">Network & security engineer • Full stack dev</p>
+            <p className="eyebrow">Network & security engineer • Systems orchestrator</p>
             <h1>Winbisid.</h1>
             <p className="lede">
-              I design and build secure, resilient systems—from playful, motion-rich UIs to robust infra and networked products. My work blends creative coding, full stack engineering, and hands-on security for experiences that are both delightful and dependable.
+              Architecting uptime, defending endpoints, and scripting away toil—my toolkit spans packet traces, print queues, and pipelines. From automating the mundane to securing the edge, I design systems that just work (and keep working), with a focus on reliability, security, and clarity.
             </p>
             <div className="hero__cta">
               <motion.a
