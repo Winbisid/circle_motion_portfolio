@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./Contact.css";
 
@@ -33,14 +33,70 @@ export default function Contact() {
                 <div>
                     <p className="eyebrow">Contact</p>
                     <h2 className="heading">
-                        Let’s{' '}
-                        <span className="contact-verb" style={{ color: '#cf59e6', transition: 'color 0.3s' }}>
-                            {verbs[verbIdx]}
-                        </span>{' '}
-                        something{' '}
-                        <span className="contact-adj" style={{ color: '#6cf7e6', transition: 'color 0.3s' }}>
-                            {adjectives[adjIdx]}
-                        </span>.
+                        Let’s
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                                key={"verb-" + verbs[verbIdx]}
+                                className="contact-verb"
+                                style={{ color: '#cf59e6', display: 'inline-block', margin: '0 0.25em' }}
+                                initial={{
+                                    opacity: 0,
+                                    y: 0,
+                                    scaleY: 1.8,
+                                    skewY: 12,
+                                    filter: 'blur(12px)'
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    scaleY: 1,
+                                    skewY: 0,
+                                    filter: 'blur(0px)'
+                                }}
+                                exit={{
+                                    opacity: 0,
+                                    y: 60,
+                                    scaleY: 2.5,
+                                    skewY: 24,
+                                    filter: 'blur(18px)'
+                                }}
+                                transition={{ duration: 0.95, ease: [0.4, 0.7, 0.2, 1] }}
+                            >
+                                {verbs[verbIdx]}
+                            </motion.span>
+                        </AnimatePresence>
+                        <span style={{ margin: '0 0.25em' }}>something</span>
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                                key={"adj-" + adjectives[adjIdx]}
+                                className="contact-adj"
+                                style={{ color: '#6cf7e6', display: 'inline-block', margin: '0 0.25em' }}
+                                initial={{
+                                    opacity: 0,
+                                    y: 0,
+                                    scaleY: 1.8,
+                                    skewY: 12,
+                                    filter: 'blur(12px)'
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    scaleY: 1,
+                                    skewY: 0,
+                                    filter: 'blur(0px)'
+                                }}
+                                exit={{
+                                    opacity: 0,
+                                    y: 60,
+                                    scaleY: 2.5,
+                                    skewY: 24,
+                                    filter: 'blur(18px)'
+                                }}
+                                transition={{ duration: 0.95, ease: [0.4, 0.7, 0.2, 1] }}
+                            >
+                                {adjectives[adjIdx]}
+                            </motion.span>
+                        </AnimatePresence>.
                     </h2>
                     <p className="contact__lede">
                         Open to product engineering, frontend, and creative coding collabs.
